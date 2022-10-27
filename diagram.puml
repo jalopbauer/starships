@@ -8,4 +8,12 @@ class Ship {
     weapon:Weapon
 }
 
+class Asteroid {
+    id:Int
+    health:Health
+    forwardSpeed:VectorialSpeed
+    rotationalSpeed:RotationalSpeed
+    shape:Shape
+}
+
 @enduml
