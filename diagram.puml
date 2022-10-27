@@ -16,4 +16,12 @@ class Asteroid {
     shape:Shape
 }
 
+
+class Shot {
+    id:Int
+    health:Health
+    forwardSpeed:VectorialSpeed
+    rotationalSpeed:RotationalSpeed
+    shape:Shape
+}
 @enduml
