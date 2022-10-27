@@ -21,7 +21,7 @@ class Shot {
     shape:Shape
 }
 
-class speed {
+class Speed {
     forwardSpeed:VectorialSpeed
     rotationalSpeed:RotationalSpeed
 }
