@@ -1,11 +1,11 @@
 @startuml
-class Dummy {
-  String data
-  void methods()
+class Ship {
+    id:Int
+    health:Health
+    forwardSpeed:VectorialSpeed
+    rotationalSpeed:RotationalSpeed
+    shape:Shape
+    weapon:Weapon
 }
 
-class Flight {
-   flightNumber : Integer
-   departureTime : Date
-}
 @enduml
