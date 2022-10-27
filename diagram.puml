@@ -2,8 +2,7 @@
 class Ship {
     id:Int
     health:Health
-    forwardSpeed:VectorialSpeed
-    rotationalSpeed:RotationalSpeed
+    speed:Speed
     shape:Shape
     weapon:Weapon
 }
@@ -11,8 +10,7 @@ class Ship {
 class Asteroid {
     id:Int
     health:Health
-    forwardSpeed:VectorialSpeed
-    rotationalSpeed:RotationalSpeed
+    speed:Speed
     shape:Shape
 }
 
@@ -20,8 +18,12 @@ class Asteroid {
 class Shot {
     id:Int
     health:Health
+    speed:Speed
+    shape:Shape
+}
+
+class speed {
     forwardSpeed:VectorialSpeed
     rotationalSpeed:RotationalSpeed
-    shape:Shape
 }
 @enduml
