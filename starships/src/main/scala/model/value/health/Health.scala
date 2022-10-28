@@ -1,4 +1,4 @@
-package model.health
+package model.value.health
 
 import model.Model
 

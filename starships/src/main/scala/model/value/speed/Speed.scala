@@ -1,4 +1,4 @@
-package model.speed
+package model.value.speed
 
 import model.Model
 

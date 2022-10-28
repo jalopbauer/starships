@@ -1,8 +1,8 @@
 package model.collidable
 
 import model.Model
-import model.damage.Damage
-import model.health.Health
-import model.speed.Speed
+import model.value.damage.Damage
+import model.value.health.Health
+import model.value.speed.Speed
 
 trait Collideable(damage: Damage, health: Health, speed: Speed) extends Model

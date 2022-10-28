@@ -1,4 +1,4 @@
-package model.damage
+package model.value.damage
 
 import model.Model
 
