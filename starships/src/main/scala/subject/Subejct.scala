@@ -1,0 +1,3 @@
+package subject
+
+trait Subejct
