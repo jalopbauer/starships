@@ -1,21 +1,18 @@
 @startuml
 class Ship {
     id:Int
-    health:Health
-    speed:Speed
-    shape:Shape
     weapon:Weapon
 }
 
 class Asteroid {
     id:Int
-    health:Health
-    speed:Speed
-    shape:Shape
 }
 
 class Shot {
     id:Int
+}
+
+class GameComponent {
     health:Health
     speed:Speed
     shape:Shape
