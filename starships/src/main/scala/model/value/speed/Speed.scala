@@ -2,4 +2,4 @@ package model.value.speed
 
 import model.Model
 
-trait Speed
+case class Speed(x:Int, y:Int)

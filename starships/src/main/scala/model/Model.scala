@@ -1,3 +1,4 @@
 package model
 
-trait Model
+trait Model:
+  def id:Int
