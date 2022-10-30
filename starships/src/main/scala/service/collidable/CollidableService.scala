@@ -5,3 +5,5 @@ import model.collidable.Collidable
 
 trait CollidableService:
   def handleCollision(collisionsDTO: List[CollisionDTO]):List[Collidable]
+
+  def spawnCollidable():List[Collidable]

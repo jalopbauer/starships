@@ -8,4 +8,6 @@ trait CollidableController(collidableService: CollidableService, collideableView
   def handleCollision(collisionsDTO: List[CollisionDTO]):List[CollidableView] =
     val postCollisionCollidables = collidableService.handleCollision(collisionsDTO)
     collideableViewTransformer.transform(postCollisionCollidables)
-  def spawnCollidable():List[CollidableView]
+  def spawnCollidable():List[CollidableView] =
+    val spawnCollidables = collidableService.spawnCollidable()
+    collideableViewTransformer.transform(spawnCollidables)
