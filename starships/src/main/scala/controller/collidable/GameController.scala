@@ -1,13 +1,15 @@
 package controller.collidable
 
 import dto.collision.CollisionDTO
-import service.collidable.CollidableService
+import service.game.GameService
 import view.collidable.{CollidableView, CollidableViewTransformer}
 
-trait CollidableController(collidableService: CollidableService, collideableViewTransformer: CollidableViewTransformer):
+trait GameController(gameService: GameService
+                     , collideableViewTransformer: CollidableViewTransformer):
   def handleCollision(collisionsDTO: List[CollisionDTO]):List[CollidableView] =
-    val postCollisionCollidables = collidableService.handleCollision(collisionsDTO)
+    val postCollisionCollidables = gameService.handleCollision(collisionsDTO)
     collideableViewTransformer.transform(postCollisionCollidables)
+    
   def spawnCollidable():List[CollidableView] =
-    val spawnCollidables = collidableService.spawnCollidable()
+    val spawnCollidables = gameService.spawnCollidable()
     collideableViewTransformer.transform(spawnCollidables)
