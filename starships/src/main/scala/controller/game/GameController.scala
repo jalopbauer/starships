@@ -1,4 +1,4 @@
-package controller.collidable
+package controller.game
 
 import dto.collision.CollisionDTO
 import service.game.GameService
@@ -9,7 +9,7 @@ trait GameController(gameService: GameService
   def handleCollision(collisionsDTO: List[CollisionDTO]):List[CollidableView] =
     val postCollisionCollidables = gameService.handleCollision(collisionsDTO)
     collideableViewTransformer.transform(postCollisionCollidables)
-    
+
   def spawnCollidable():List[CollidableView] =
     val spawnCollidables = gameService.spawnCollidable()
     collideableViewTransformer.transform(spawnCollidables)
