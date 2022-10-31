@@ -8,5 +8,5 @@ import model.value.collision.Collision
 import repository.collidable.CollidableRepository
 import service.collidable.CollidableService
 
-trait SpawnService(collidableService: CollidableService, collisionHandler: CollisionHandler):
+trait SpawnService:
   def spawnCollidable():List[Collidable]
