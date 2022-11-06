@@ -1,4 +1,4 @@
-package action.movementAction
+package action.movement
 
 import action.Action
 import gameData.KeyStroke
