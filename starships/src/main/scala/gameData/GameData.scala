@@ -7,3 +7,4 @@ trait GameData:
   def collisions:List[Collision]
   def entities:List[Entity]
   def keyStrokes:List[KeyStroke]
+  def spawners:List[Spawner]

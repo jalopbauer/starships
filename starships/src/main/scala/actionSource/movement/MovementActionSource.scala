@@ -1,7 +1,7 @@
 package actionSource.movement
 
 import action.Action
-import action.movementAction.MovementAction
+import action.movement.MovementAction
 import actionSource.ActionSource
 import gameData.{EntityType, GameData}
 
