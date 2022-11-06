@@ -1,4 +1,4 @@
-package actionSource.movementActionSource
+package actionSource.movement
 
 import action.Action
 import action.movementAction.MovementAction
