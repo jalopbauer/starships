@@ -1,3 +1,4 @@
 package action
 
-trait Action
+trait Action(id:Int):
+  def setId(newId:Int):Action
