@@ -1,5 +1,5 @@
 package gameData
 
-trait Entity:
-  def entityType:EntityType
-  def id:Int
+import gameData.motion.Motion
+
+case class Entity(id:Int, entityType:EntityType, motion: Motion)

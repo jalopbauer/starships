@@ -1,4 +1,4 @@
 package gameData
+import gameData.motion.Motion
 
-trait Spawner:
-  def entityType:EntityType
+case class Spawner(id:Int, entityType:EntityType, motion:Motion)
