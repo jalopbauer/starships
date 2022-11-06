@@ -1,0 +1,3 @@
+package gameData
+
+trait KeyStroke
