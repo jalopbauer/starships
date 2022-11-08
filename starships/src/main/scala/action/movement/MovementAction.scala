@@ -3,5 +3,4 @@ package action.movement
 import action.Action
 import gameData.KeyStroke
 
-trait MovementAction extends Action:
-  def setKeyStrokes(keyStrokes:List[KeyStroke]):MovementAction
+trait MovementAction(id:Int, keyStrokes:List[KeyStroke]) extends Action

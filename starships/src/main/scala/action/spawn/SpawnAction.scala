@@ -3,8 +3,7 @@ package action.spawn
 import gameData.{Entity, Spawner}
 import action.Action
 
-case class SpawnAction(spawner: Spawner) extends Action(spawner.id):
+case class SpawnAction(spawner: Spawner) extends Action:
   var  id: Int = spawner.id
-  def setId(newId:Int): Action = this.copy(spawner.copy(id = newId))
-  def act(): Entity =
-    Entity(spawner.id, spawner.entityType, spawner.motion)
+  def act(id:Int): Entity =
+    Entity(id, spawner.entityType, spawner.motion)
