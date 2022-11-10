@@ -5,5 +5,5 @@ import action.Action
 
 case class SpawnAction(spawner: Spawner) extends Action:
   var  id: Int = spawner.id
-  def act(id:Int): Entity =
+  def act(entity:Entity): Entity =
     Entity(id, spawner.entityType, spawner.motion)
