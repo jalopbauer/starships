@@ -3,7 +3,7 @@ package action.movement
 import action.Action
 import gameData.{Entity, KeyStroke, Spawner}
 
-case class ConstantMovementAction(id:Int) extends MovementAction(id, List()):
+case class ConstantMovementAction(id:Int) extends MovementAction(id):
   def act(entity:Entity): Entity =
     val motion = entity.motion
     val direction = motion.direction
