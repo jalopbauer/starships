@@ -2,13 +2,13 @@ import Dependencies._
 
 ThisBuild / scalaVersion     := "3.2.0"
 ThisBuild / version          := "0.1.0-SNAPSHOT"
-ThisBuild / organization     := "Jug.ar"
-ThisBuild / organizationName := "Jugar"
+
+resolvers += "GitHub Package Registry" at "https://maven.pkg.github.com/austral-ingsis/starships-ui"
+credentials += Credentials("GitHub Package Registry", "maven.pkg.github.com", "jalopbauer", "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")
+
+libraryDependencies += "edu.austral.ingsis.starships" % "starships-ui" % "1.0.0"
 
 lazy val root = (project in file("."))
   .settings(
     name := "starships",
-    libraryDependencies += scalaTest % Test
   )
-
-// See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.
