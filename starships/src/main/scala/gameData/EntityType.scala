@@ -1,3 +1,4 @@
 package gameData
 
-case class EntityType()
+enum EntityType:
+  case ASTEROID, SHIP, SHOT
