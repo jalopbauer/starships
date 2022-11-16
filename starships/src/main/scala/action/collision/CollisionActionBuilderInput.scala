@@ -1,8 +1,9 @@
 package action.collision
 
 import action.ActionBuilderInput
-import gameData.KeyStroke
+import gameData.{Entity, KeyStroke}
 
 import scala.collection.immutable.List
 
-case class CollisionActionBuilderInput(id:Int) extends ActionBuilderInput
+case class CollisionActionBuilderInput(actionEmitter: Entity, actionReceiver: Entity) extends ActionBuilderInput:
+  def inverse:CollisionActionBuilderInput = this.copy(actionReceiver, actionEmitter)

@@ -9,9 +9,9 @@ case class CollisionActionSource(collisionsActionMap: Map[(EntityType, EntityTyp
   def createActions(gameData: GameData): List[Action] =
     val collisions = gameData.collisions
     collisions.flatMap(collision => {
-      val entityIdTuple = collision.getEntityIdTuple
       val actionListTuple = collisionsActionMap(collision.getEntityTypeTuple)
-      val firstEntityActions = actionListTuple._1.map(_.build(CollisionActionBuilderInput(entityIdTuple._1)))
-      val secondEntityActions = actionListTuple._2.map(_.build(CollisionActionBuilderInput(entityIdTuple._2)))
+      val collisionBuilderInput = CollisionActionBuilderInput(collision.rightEntity, collision.leftEntity)
+      val firstEntityActions = actionListTuple._1.map(_.build(collisionBuilderInput))
+      val secondEntityActions = actionListTuple._2.map(_.build(collisionBuilderInput.inverse))
       firstEntityActions ++ secondEntityActions
     })

@@ -1,5 +1,5 @@
 package gameData
 
-trait Collision():
-  def getEntityTypeTuple:(EntityType, EntityType)
-  def getEntityIdTuple:(Int, Int)
+case class Collision(leftEntity: Entity, rightEntity: Entity):
+  def getEntityTypeTuple:(EntityType, EntityType) =
+    (leftEntity.entityType, rightEntity.entityType)
