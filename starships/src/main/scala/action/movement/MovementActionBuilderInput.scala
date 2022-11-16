@@ -1,8 +1,8 @@
 package action.movement
 
-import gameData.KeyStroke
+import gameData.{Entity, KeyStroke}
 import action.ActionBuilderInput
 
 import scala.collection.immutable.List
 
-case class MovementActionBuilderInput(id:Int, keyStrokes:List[KeyStroke]) extends ActionBuilderInput
+case class MovementActionBuilderInput(entity:Entity) extends ActionBuilderInput

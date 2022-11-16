@@ -5,4 +5,4 @@ import action.movement.constantMovementAction.ConstantMovementAction
 
 class ConstantRotationActionBuilder(rotationValueInDegrees: Int) extends MovementActionBuilder:
   def build(actionBuilderInput: MovementActionBuilderInput): MovementAction =
-    ConstantRotationAction(rotationValueInDegrees)
+    ConstantRotationAction(rotationValueInDegrees, actionBuilderInput.entity)

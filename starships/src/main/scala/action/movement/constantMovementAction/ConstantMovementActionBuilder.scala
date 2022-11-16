@@ -4,4 +4,4 @@ import action.movement.{MovementAction, MovementActionBuilder, MovementActionBui
 
 case class ConstantMovementActionBuilder() extends MovementActionBuilder:
   def build(actionBuilderInput: MovementActionBuilderInput): ConstantMovementAction =
-    ConstantMovementAction()
+    ConstantMovementAction(actionBuilderInput.entity)

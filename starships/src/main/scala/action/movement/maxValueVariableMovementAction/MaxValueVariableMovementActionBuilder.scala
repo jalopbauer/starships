@@ -10,4 +10,5 @@ class MaxValueVariableMovementActionBuilder(maxValue: Int
   def build(actionBuilderInput: MovementActionBuilderInput): MovementAction =
     MaxValueVariableMovementAction(maxValue
       , variableMovementAction.build(actionBuilderInput)
-      , constantMovementActionBuilder.build(actionBuilderInput))
+      , constantMovementActionBuilder.build(actionBuilderInput)
+      , actionBuilderInput.entity)

@@ -10,5 +10,5 @@ case class MovementActionSource(movementActionMap: Map[EntityType, List[Movement
     val entities = gameData.entities
     entities.flatMap(entity => {
       val actionList = movementActionMap(entity.entityType)
-      actionList.map(_.build(MovementActionBuilderInput(entity.id, gameData.keyStrokes)))
+      actionList.map(_.build(MovementActionBuilderInput(entity)))
     })

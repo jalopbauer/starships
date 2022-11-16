@@ -1,6 +1,6 @@
 package action.collision
 
 import action.Action
-import gameData.KeyStroke
+import gameData.{Entity, KeyStroke}
 
-trait CollisionAction(id:Int) extends Action
+trait CollisionAction extends Action
