@@ -1,6 +1,7 @@
 package gameData
 
 import action.Action
+import gameData.value.{Collision, KeyStroke}
 import spawner.Spawner
 
 trait GameData:

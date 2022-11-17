@@ -6,7 +6,7 @@ import action.movement.maxValueVariableMovementAction.MaxValueVariableMovementAc
 import action.movement.variableMovementAction.VariableMovementActionBuilder
 import actionSource.ActionSource
 import actionSource.movement.MovementActionSource
-import gameData.{EntityType, KeyStroke, KeyStrokeAction}
+import gameData.value.{EntityType, KeyStroke, KeyStrokeAction}
 
 case class MovementActionSourceFactory() extends ActionSourceFactory:
   def create(): ActionSource = {

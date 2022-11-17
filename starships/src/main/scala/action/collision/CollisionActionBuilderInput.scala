@@ -1,7 +1,8 @@
 package action.collision
 
 import action.ActionBuilderInput
-import gameData.{Entity, KeyStroke}
+import gameData.Entity
+import gameData.value.KeyStroke
 
 import scala.collection.immutable.List
 

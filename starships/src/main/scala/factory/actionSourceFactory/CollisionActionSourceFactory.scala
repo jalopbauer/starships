@@ -3,7 +3,7 @@ package factory.actionSourceFactory
 import action.collision.damageAction.CollisionDamageActionBuilder
 import actionSource.ActionSource
 import actionSource.collision.CollisionActionSource
-import gameData.EntityType
+import gameData.value.EntityType
 
 case class CollisionActionSourceFactory() extends ActionSourceFactory:
   def create(): ActionSource =

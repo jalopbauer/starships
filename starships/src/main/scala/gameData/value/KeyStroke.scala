@@ -1,4 +1,4 @@
-package gameData
+package gameData.value
 
 case class KeyStroke(letter: Char, keyStrokeAction: KeyStrokeAction)
 enum KeyStrokeAction:
