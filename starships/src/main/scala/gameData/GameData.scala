@@ -1,6 +1,7 @@
 package gameData
 
 import action.Action
+import spawner.Spawner
 
 trait GameData:
   def receiveAction(action: Action):GameData

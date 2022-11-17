@@ -7,4 +7,4 @@ import gameData.GameData
 
 case class SpawnActionSource() extends ActionSource:
   def createActions(gameData: GameData): List[Action] =
-    gameData.spawners.map(SpawnAction(_))
+    gameData.spawners.filter(_.spawn.isDefined).map(SpawnAction(_))

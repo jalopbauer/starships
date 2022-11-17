@@ -1,9 +1,9 @@
 package action.spawn
 
-import gameData.{Entity, Spawner}
+import gameData.Entity
 import action.Action
+import spawner.Spawner
 
 case class SpawnAction(spawner: Spawner) extends Action:
-  var  id: Int = spawner.id
   def act: Entity =
-    Entity(id, spawner.entityType, spawner.motion, spawner.damage, spawner.health)
+    spawner.spawn.get
