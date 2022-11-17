@@ -1,4 +1,4 @@
-package gameData.motion
+package gameData.value.motion
 
 import scala.math.{pow, sqrt}
 
