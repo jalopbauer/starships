@@ -1,4 +1,4 @@
-package gameData.value
+package entity.value
 
 enum EntityType:
   case ASTEROID, SHIP, SHOT

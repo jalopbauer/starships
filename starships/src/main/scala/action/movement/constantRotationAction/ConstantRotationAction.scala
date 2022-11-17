@@ -1,7 +1,7 @@
 package action.movement.constantRotationAction
 
 import action.movement.MovementAction
-import gameData.Entity
+import entity.Entity
 
 case class ConstantRotationAction(rotationValueInDegrees: Int, entity: Entity) extends MovementAction :
   def act: Entity =

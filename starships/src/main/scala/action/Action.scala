@@ -1,6 +1,6 @@
 package action
 
-import gameData.Entity
+import entity.Entity
 
 trait Action:
   def act: Entity

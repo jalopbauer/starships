@@ -3,8 +3,8 @@ package actionSource.collision
 import action.Action
 import action.collision.{CollisionActionBuilder, CollisionActionBuilderInput}
 import actionSource.ActionSource
+import entity.value.EntityType
 import gameData.GameData
-import gameData.value.EntityType
 
 case class CollisionActionSource(collisionsActionMap: Map[(EntityType, EntityType), (List[CollisionActionBuilder], List[CollisionActionBuilder])]) extends ActionSource:
   def createActions(gameData: GameData): List[Action] =

@@ -4,7 +4,7 @@ import action.Action
 import action.movement.MovementAction
 import action.movement.constantMovementAction.ConstantMovementAction
 import action.movement.variableMovementAction.VariableMovementAction
-import gameData.Entity
+import entity.Entity
 
 case class MaxValueVariableMovementAction(maxValue: Int
                                           , variableMovementAction: VariableMovementAction

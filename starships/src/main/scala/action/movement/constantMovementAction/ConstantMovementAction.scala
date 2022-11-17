@@ -2,7 +2,7 @@ package action.movement.constantMovementAction
 
 import action.Action
 import action.movement.MovementAction
-import gameData.Entity
+import entity.Entity
 
 case class ConstantMovementAction(entity: Entity) extends MovementAction:
   def act: Entity =

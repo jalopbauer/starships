@@ -1,6 +1,0 @@
-package gameData
-
-import gameData.value.EntityType
-import gameData.value.motion.Motion
-
-case class Entity(id:Int, entityType:EntityType, motion: Motion, damage: Int, health: Int)

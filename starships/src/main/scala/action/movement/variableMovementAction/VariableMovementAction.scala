@@ -1,7 +1,7 @@
 package action.movement.variableMovementAction
 
 import action.movement.MovementAction
-import gameData.Entity
+import entity.Entity
 
 case class VariableMovementAction(gradient: Int, entity: Entity) extends MovementAction:
   def act: Entity =

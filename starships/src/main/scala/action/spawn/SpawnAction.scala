@@ -1,7 +1,7 @@
 package action.spawn
 
-import gameData.Entity
 import action.Action
+import entity.Entity
 import spawner.Spawner
 
 case class SpawnAction(spawner: Spawner) extends Action:

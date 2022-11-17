@@ -1,7 +1,7 @@
 package action.general.damageAction
 
 import action.Action
-import gameData.Entity
+import entity.Entity
 
 case class DamageAction(entity: Entity, damage: Int) extends Action:
   def act: Entity =

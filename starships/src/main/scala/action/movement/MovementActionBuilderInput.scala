@@ -1,8 +1,8 @@
 package action.movement
 
-import gameData.Entity
 import action.ActionBuilderInput
-import gameData.value.KeyStroke
+import entity.Entity
+import entity.value.KeyStroke
 
 import scala.collection.immutable.List
 
