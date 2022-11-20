@@ -12,7 +12,7 @@ case class MovementActionSource(movementActionMap: Map[EntityType, List[Movement
   def createActions(gameData: GameData): List[Action] =
     val entities = gameData.entities
     entities.flatMap(entity => {
-      val keyStrokeActionList = gameData.keyStrokes.flatMap(keystroke => {
+      val keyStrokeActionList = gameData.keyPresses.flatMap(keystroke => {
         val mapKey = (entity.id, keystroke)
         movementActionMapWithKeyStroke.getOrElse(mapKey, List())
       })

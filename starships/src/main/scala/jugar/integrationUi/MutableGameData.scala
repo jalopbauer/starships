@@ -14,9 +14,9 @@ class MutableGameData(var gameData: DefaultGameData):
   def addCollision(collision: Collision): Unit =
     gameData = gameData.copy(collisions =  collision :: gameData.collisions)
 
-  def addKeyStrokes(keyStrokes: List[KeyPress]): Unit =
-    gameData = gameData.copy(keyStrokes =  keyStrokes)
+  def addKeyStrokes(keyPress: KeyPress): Unit =
+    gameData = gameData.copy(keyPresses =  keyPress :: gameData.keyPresses)
 
   def flush(): Unit =
-    gameData.copy(collisions = List(), keyStrokes = List())
+    gameData.copy(collisions = List(), keyPresses = List())
 

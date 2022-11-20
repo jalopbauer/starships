@@ -1,3 +1,3 @@
 package entity.value
- 
-case class KeyPress(letter: Char)
+
+case class KeyPress(character: String)

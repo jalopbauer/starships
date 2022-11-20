@@ -21,15 +21,15 @@ case class MovementActionSourceFactory() extends ActionSourceFactory:
         EntityType.ASTEROID -> List(constantMovementActionBuilder)
         , EntityType.SHOT -> List(constantMovementActionBuilder))
       , Map(
-        (1, KeyPress('w')) -> List(forward)
-        , (1, KeyPress('s')) -> List(backwards)
-        , (1, KeyPress('a')) -> List(rightRotationBuilder)
-        , (1, KeyPress('d')) -> List(leftRotationBuilder)
+        (1, KeyPress("w")) -> List(forward)
+        , (1, KeyPress("s")) -> List(backwards)
+        , (1, KeyPress("a")) -> List(rightRotationBuilder)
+        , (1, KeyPress("d")) -> List(leftRotationBuilder)
 
-        , (2, KeyPress('k')) -> List(forward)
-        , (2, KeyPress('j')) -> List(backwards)
-        , (2, KeyPress('l')) -> List(rightRotationBuilder)
-        , (3, KeyPress('h')) -> List(leftRotationBuilder)
+        , (2, KeyPress("k")) -> List(forward)
+        , (2, KeyPress("j")) -> List(backwards)
+        , (2, KeyPress("l")) -> List(rightRotationBuilder)
+        , (3, KeyPress("h")) -> List(leftRotationBuilder)
       )
     )
   }
