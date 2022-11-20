@@ -2,13 +2,13 @@ package gameData.implementation
 
 import action.Action
 import entity.Entity
-import entity.value.{Collision, KeyStroke}
+import entity.value.{Collision, KeyPress}
 import gameData.GameData
 import spawner.Spawner
 
 case class DefaultGameData(collisions: List[Collision]
                           , entitiesMap: Map[Int, Entity]
-                          , keyStrokes: List[KeyStroke]
+                          , keyStrokes: List[KeyPress]
                           , spawners: List[Spawner]) extends GameData:
 
   def receiveAction(action: Action): GameData =

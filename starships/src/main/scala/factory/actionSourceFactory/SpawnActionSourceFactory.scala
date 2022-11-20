@@ -7,7 +7,7 @@ import action.movement.variableMovementAction.VariableMovementActionBuilder
 import actionSource.ActionSource
 import actionSource.movement.MovementActionSource
 import actionSource.spawn.SpawnActionSource
-import entity.value.{EntityType, KeyStroke, KeyStrokeAction}
+import entity.value.{EntityType}
 
 case class SpawnActionSourceFactory() extends ActionSourceFactory:
   def create(): ActionSource =

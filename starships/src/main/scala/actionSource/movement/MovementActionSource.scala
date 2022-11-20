@@ -3,11 +3,11 @@ package actionSource.movement
 import action.Action
 import action.movement.{MovementAction, MovementActionBuilder, MovementActionBuilderInput}
 import actionSource.ActionSource
-import entity.value.{EntityType, KeyStroke}
+import entity.value.{EntityType, KeyPress}
 import gameData.GameData
 
 case class MovementActionSource(movementActionMap: Map[EntityType, List[MovementActionBuilder]]
-                                , movementActionMapWithKeyStroke: Map[(Int, KeyStroke), List[MovementActionBuilder]]) extends ActionSource:
+                                , movementActionMapWithKeyStroke: Map[(Int, KeyPress), List[MovementActionBuilder]]) extends ActionSource:
 //  Claramente esto muy feo y hay que cambiar algo
   def createActions(gameData: GameData): List[Action] =
     val entities = gameData.entities

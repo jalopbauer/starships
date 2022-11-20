@@ -6,7 +6,7 @@ import action.movement.maxValueVariableMovementAction.MaxValueVariableMovementAc
 import action.movement.variableMovementAction.VariableMovementActionBuilder
 import actionSource.ActionSource
 import actionSource.movement.MovementActionSource
-import entity.value.{EntityType, KeyStroke, KeyStrokeAction}
+import entity.value.{EntityType, KeyPress}
 
 case class MovementActionSourceFactory() extends ActionSourceFactory:
   def create(): ActionSource = {
@@ -21,15 +21,15 @@ case class MovementActionSourceFactory() extends ActionSourceFactory:
         EntityType.ASTEROID -> List(constantMovementActionBuilder)
         , EntityType.SHOT -> List(constantMovementActionBuilder))
       , Map(
-        (1, KeyStroke('w', KeyStrokeAction.FORWARD)) -> List(forward)
-        , (1, KeyStroke('s', KeyStrokeAction.BACKWARDS)) -> List(backwards)
-        , (1, KeyStroke('a', KeyStrokeAction.ROTATE_RIGHT)) -> List(rightRotationBuilder)
-        , (1, KeyStroke('d', KeyStrokeAction.ROTATE_LEFT)) -> List(leftRotationBuilder)
+        (1, KeyPress('w')) -> List(forward)
+        , (1, KeyPress('s')) -> List(backwards)
+        , (1, KeyPress('a')) -> List(rightRotationBuilder)
+        , (1, KeyPress('d')) -> List(leftRotationBuilder)
 
-        , (2, KeyStroke('k', KeyStrokeAction.FORWARD)) -> List(forward)
-        , (2, KeyStroke('j', KeyStrokeAction.BACKWARDS)) -> List(backwards)
-        , (2, KeyStroke('l', KeyStrokeAction.ROTATE_RIGHT)) -> List(rightRotationBuilder)
-        , (3, KeyStroke('h', KeyStrokeAction.ROTATE_LEFT)) -> List(leftRotationBuilder)
+        , (2, KeyPress('k')) -> List(forward)
+        , (2, KeyPress('j')) -> List(backwards)
+        , (2, KeyPress('l')) -> List(rightRotationBuilder)
+        , (3, KeyPress('h')) -> List(leftRotationBuilder)
       )
     )
   }
