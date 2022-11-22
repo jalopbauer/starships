@@ -13,8 +13,7 @@ import scala.collection.mutable.Map
 import javafx.collections.ObservableMap
 
 
-class MutableGameData(var gameData: GameData, elements: ObservableMap[String, ElementModel]):
-
+class MutableGameData(var gameData: GameData, var elements: ObservableMap[String, ElementModel]):
   
   def addCollision(collision: Collision): Unit =
     gameData = gameData.add(collision)
