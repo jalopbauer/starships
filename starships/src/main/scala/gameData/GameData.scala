@@ -2,7 +2,7 @@ package gameData
 
 import action.Action
 import entity.Entity
-import entity.value.{Collision, KeyPress}
+import entity.value.{Collision, KeyPress, EntityType}
 import seed.Seed
 import spawner.Spawner
 
@@ -18,7 +18,9 @@ case class GameData(collisions: List[Collision]
   def flush(): GameData =
     this.copy(collisions = List(), keyPresses = List(), modifiedEntitiesSet = Set())
 
-  
+  def ships:List[Entity] =
+    entities.filter(_.entityType.equals(EntityType.SHIP))
+
   def add(collision: Collision): GameData =
     this.copy(collisions = collision :: collisions)
 

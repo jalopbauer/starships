@@ -3,8 +3,9 @@ package spawner
 import entity.Entity
 import entity.value.EntityType
 import entity.value.motion.Motion
+import gameData.GameData
 
-trait Spawner(entityType: EntityType, motion: Motion, damage: Int, health: Int):
-  def spawn(id: Int): Option[Entity]
+trait Spawner:
+  def spawn(id: Int, gameData: GameData): Option[Entity]
   
   

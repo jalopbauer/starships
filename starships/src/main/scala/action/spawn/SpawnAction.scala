@@ -8,6 +8,6 @@ import spawner.Spawner
 case class SpawnAction(spawner: Spawner) extends Action:
   def act(gameData: GameData): GameData =
     val nextSeed = gameData.seed.next
-    val maybeEntity = spawner.spawn(nextSeed._1)
+    val maybeEntity = spawner.spawn(nextSeed._1, gameData)
     if (maybeEntity.isDefined) gameData.add(maybeEntity.get).copy(seed = nextSeed._2)
     else gameData
