@@ -13,6 +13,8 @@ case class GameData(collisions: List[Collision]
                     , modifiedEntitiesSet: Set[Int]
                     , seed: Seed):
 
+  def entities: List[Entity] = entitiesMap.values.toList
+
   def flush(): GameData =
     this.copy(collisions = List(), keyPresses = List(), modifiedEntitiesSet = Set())
 
