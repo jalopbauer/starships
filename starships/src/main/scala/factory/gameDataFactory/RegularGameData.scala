@@ -4,13 +4,13 @@ import entity.Entity
 import entity.value.motion.{Coordinate, Motion}
 import entity.value.EntityType
 import gameData.GameData
-import seed.CrescendoIdSeed
+import seed.CrescendoIntSeed
 import spawner.Spawner
 
 case class RegularGameData() extends GameDataFactory:
   def create(): GameData =
     val spawners = List()
-    val seed = CrescendoIdSeed(3)
+    val seed = CrescendoIntSeed(3)
     val motion = Motion(Coordinate(0,0), Coordinate(200,200), 0)
     val entitiesMap: Map[Int, Entity] = Map(
       1 -> Entity(1, EntityType.SHIP, motion, 10, 5)
