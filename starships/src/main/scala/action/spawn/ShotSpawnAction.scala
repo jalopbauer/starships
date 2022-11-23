@@ -9,6 +9,6 @@ import spawner.Spawner
 case class ShotSpawnAction() extends Action:
   def act(gameData: GameData): GameData =
     gameData.ships.foldLeft(gameData)((acc, ship) =>{
-      val nextSeed = gameData.seed.next
-      acc.add(ship.copy(entityType = EntityType.SHOT, health = 1, damage = 1)).copy(seed = nextSeed._2)
+      val nextSeed = gameData.idSeed.next
+      acc.add(ship.copy(id = nextSeed._1, entityType = EntityType.SHOT, health = 1, damage = 1)).copy(idSeed = nextSeed._2)
     })

@@ -2,8 +2,8 @@ package gameData
 
 import action.Action
 import entity.Entity
-import entity.value.{Collision, KeyPress, EntityType}
-import seed.IntSeed
+import entity.value.{Collision, EntityType, KeyPress}
+import seed.{BooleanSeed, IntSeed}
 import spawner.Spawner
 
 case class GameData(collisions: List[Collision]
@@ -11,7 +11,8 @@ case class GameData(collisions: List[Collision]
                     , keyPresses: List[KeyPress]
                     , spawners: List[Spawner]
                     , modifiedEntitiesSet: Set[Int]
-                    , seed: IntSeed):
+                    , idSeed: IntSeed
+                    , booleanSeed: BooleanSeed):
 
   def entities: List[Entity] = entitiesMap.values.toList
 
@@ -33,5 +34,6 @@ case class GameData(collisions: List[Collision]
 object GameData:
   def apply(entitiesMap: Map[Int, Entity]
             , spawners: List[Spawner]
-            , seed: IntSeed): GameData =
-    GameData(List(), entitiesMap, List(), spawners, Set(), seed)
+            , seed: IntSeed
+            , booleanSeed: BooleanSeed): GameData =
+    GameData(List(), entitiesMap, List(), spawners, Set(), seed, booleanSeed)
