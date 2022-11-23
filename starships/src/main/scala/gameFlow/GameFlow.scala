@@ -8,4 +8,4 @@ case class GameFlow(actionSources: List[ActionSource]):
   def nextFrame(gameData: GameData): GameData =
     val actions = actionSources.foldLeft(List(): List[Action])((acc, actionSource) =>
       acc.appendedAll(actionSource.createActions(gameData)))
-    actions.foldLeft(gameData)((gameData,action) => gameData.receiveAction(action))
+    actions.foldLeft(gameData)((gameData,action) => action.act(gameData))

@@ -11,10 +11,6 @@ case class GameData(collisions: List[Collision]
                     , spawners: List[Spawner]
                     , modifiedEntitiesSet: Set[Int]):
 
-  def receiveAction(action: Action): GameData =
-    val entity = action.act
-    this.copy(entitiesMap = entitiesMap + (entity.id -> entity), modifiedEntitiesSet = modifiedEntitiesSet + entity.id)
-
   def entities: List[Entity] = entitiesMap.values.toList
 
   def flush(): GameData =
@@ -26,3 +22,6 @@ case class GameData(collisions: List[Collision]
 
   def add(keyPress: KeyPress): GameData =
     this.copy(keyPresses = keyPress :: keyPresses)
+
+  def add(entity: Entity): GameData =
+    this.copy(entitiesMap = entitiesMap + (entity.id -> entity), modifiedEntitiesSet = modifiedEntitiesSet + entity.id)
