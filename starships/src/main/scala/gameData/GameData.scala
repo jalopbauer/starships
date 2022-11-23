@@ -25,3 +25,6 @@ case class GameData(collisions: List[Collision]
 
   def add(entity: Entity): GameData =
     this.copy(entitiesMap = entitiesMap + (entity.id -> entity), modifiedEntitiesSet = modifiedEntitiesSet + entity.id)
+
+object GameData:
+  def apply(entitiesMap: Map[Int, Entity], spawners: List[Spawner]): GameData = GameData(List(), entitiesMap, List(), spawners, Set())

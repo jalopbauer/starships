@@ -14,5 +14,5 @@ case class RegularGameData() extends GameDataFactory:
       1 -> Entity(1, EntityType.SHIP, motion, 10, 5)
       , 2 -> Entity(2, EntityType.SHIP, motion, 10, 5)
     )
-    GameData(List(), entitiesMap, List(), spawners, Set())
+    GameData(entitiesMap, spawners)
 
