@@ -5,7 +5,6 @@ import entity.Entity
 import entity.value.motion.Motion
 import entity.value.EntityType
 import gameData.GameData
-import spawner.Spawner
 
 case class SpawnAsteroidAction(motion: Motion, damage: Int, health: Int) extends SpawnAction:
   def act(gameData: GameData): GameData =

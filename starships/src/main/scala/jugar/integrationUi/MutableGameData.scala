@@ -5,7 +5,6 @@ import edu.austral.ingsis.starships.ui.ElementModel
 import entity.Entity
 import entity.value.{Collision, KeyPress}
 import gameData.GameData
-import spawner.Spawner
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
