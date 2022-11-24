@@ -5,6 +5,6 @@ import action.spawn.SpawnAction
 import actionSource.ActionSource
 import gameData.GameData
 
-case class SpawnActionSource() extends ActionSource:
+case class SpawnActionSource(spawnActions: List[SpawnAction]) extends ActionSource:
   def createActions(gameData: GameData): List[Action] =
-    gameData.spawners.map(SpawnAction(_))
+    spawnActions

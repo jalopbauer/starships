@@ -1,12 +1,11 @@
 package action.spawn
 
-import action.Action
+import action.spawn.SpawnAction
 import entity.Entity
 import entity.value.EntityType
 import gameData.GameData
-import spawner.Spawner
 
-case class ShotSpawnAction() extends Action:
+case class ShotSpawnAction() extends SpawnAction:
   def act(gameData: GameData): GameData =
     gameData.ships.foldLeft(gameData)((acc, ship) =>{
       val nextSeed = gameData.idSeed.next
