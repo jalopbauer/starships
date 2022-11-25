@@ -10,7 +10,8 @@ import javafx.scene.Scene
 import javafx.scene.input.KeyCode
 import javafx.stage.Stage
 import jugar.integrationUi.adapter.EntityAdapter
-import jugar.integrationUi.{CollisionListener, KeyPressListener, MutableGameData, TimePassedListener}
+import jugar.integrationUi.listener.{CollisionListener, KeyPressListener, TimePassedListener}
+import jugar.integrationUi.MutableGameData
 
 class Starships() extends Application():
   private val imageResolver = CachedImageResolver(DefaultImageResolver())
@@ -26,9 +27,9 @@ class Starships() extends Application():
   def start(primaryStage: Stage): Unit =
     mutableGameData.gameData.entities.map(EntityAdapter().meThem(_))
 
-    facade.getTimeListenable.addEventListener(TimePassedListener(mutableGameData, gameFlow))
-    facade.getCollisionsListenable.addEventListener(CollisionListener(mutableGameData))
-    keyTracker.getKeyPressedListenable.addEventListener(KeyPressListener(mutableGameData))
+    facade.getTimeListenable.addEventListener(listener.TimePassedListener(mutableGameData, gameFlow))
+    facade.getCollisionsListenable.addEventListener(listener.CollisionListener(mutableGameData))
+    keyTracker.getKeyPressedListenable.addEventListener(listener.KeyPressListener(mutableGameData))
 
     val scene = Scene(facade.getView)
     keyTracker.setScene(scene)
