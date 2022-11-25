@@ -2,23 +2,22 @@ package jugar.integrationUi
 
 import edu.austral.ingsis.starships.ui.{EventListener, TimePassed}
 import gameFlow.GameFlow
-import jugar.integrationUi.adapter.IdAdapter
+import jugar.integrationUi.adapter.{EntityAdapter, IdAdapter}
 
 case class TimePassedListener(gameData: MutableGameData
                               , gameFlow: GameFlow)
   extends EventListener[TimePassed]:
   val idAdapter: IdAdapter = IdAdapter()
+  val entityAdapter: EntityAdapter = EntityAdapter()
 
   def handle(event: TimePassed): Unit =
         val data = gameFlow.nextFrame(gameData.gameData)
         data.modifiedEntitiesSet.foreach(entityId => {
-          val entity = data.entities(entityId)
-          val motion = entity.motion
-          val position = motion.position
-          val model = gameData.elements.get(idAdapter.meThem(entity.id))
-          model.getX.setValue(position.x.toDouble)
-          model.getY.setValue(position.y.toDouble)
-          model.getRotationInDegrees.setValue(motion.degree)
+          val optionalEntity = data.entitiesMap.get(entityId)
+          if (optionalEntity.isDefined)
+            val entityModel = entityAdapter.meThem(optionalEntity.get)
+            val id = entityModel.getId
+            gameData.elements.put(id, entityModel)
         })
         gameData.flush()
 

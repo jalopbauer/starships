@@ -19,7 +19,8 @@ case class MovementActionSourceFactory() extends ActionSourceFactory:
     MovementActionSource(
       Map(
         EntityType.ASTEROID -> List(constantMovementActionBuilder)
-        , EntityType.SHOT -> List(constantMovementActionBuilder))
+        , EntityType.SHOT -> List(constantMovementActionBuilder)
+        , EntityType.SHIP -> List())
       , Map(
         (1, KeyPress("w")) -> List(forward)
         , (1, KeyPress("s")) -> List(backwards)
