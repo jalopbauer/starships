@@ -1,7 +1,7 @@
 package action
 
 import entity.Entity
-import gameData.GameData
+import gameData.PlayingGameData
 
 trait Action:
-  def act(gameData: GameData): GameData
+  def act(gameData: PlayingGameData): PlayingGameData

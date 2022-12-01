@@ -2,9 +2,9 @@ package action.general.damageAction
 
 import action.Action
 import entity.Entity
-import gameData.GameData
+import gameData.PlayingGameData
 
 case class DamageAction(entity: Entity, damage: Int) extends Action:
-  def act(gameData: GameData): GameData =
+  def act(gameData: PlayingGameData): PlayingGameData =
     gameData.add(entity.copy(health = entity.health-damage))
 

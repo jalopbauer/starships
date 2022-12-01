@@ -4,12 +4,12 @@ import action.Action
 import action.movement.{MovementAction, MovementActionBuilder, MovementActionBuilderInput}
 import actionSource.ActionSource
 import entity.value.{EntityType, KeyPress}
-import gameData.GameData
+import gameData.PlayingGameData
 
 case class MovementActionSource(movementActionMap: Map[EntityType, List[MovementActionBuilder]]
                                 , movementActionMapWithKeyStroke: Map[(Int, KeyPress), List[MovementActionBuilder]]) extends ActionSource:
 //  Claramente esto muy feo y hay que cambiar algo
-  def createActions(gameData: GameData): List[Action] =
+  def createActions(gameData: PlayingGameData): List[Action] =
     val entities = gameData.entities
     entities.flatMap(entity => {
       val keyStrokeActionList = gameData.keyPresses.flatMap(keystroke => {

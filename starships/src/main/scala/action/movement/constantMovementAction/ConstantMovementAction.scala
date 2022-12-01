@@ -3,10 +3,10 @@ package action.movement.constantMovementAction
 import action.Action
 import action.movement.MovementAction
 import entity.Entity
-import gameData.GameData
+import gameData.PlayingGameData
 
 case class ConstantMovementAction(entity: Entity) extends MovementAction:
-  def act(gameData: GameData): GameData =
+  def act(gameData: PlayingGameData): PlayingGameData =
     val motion = entity.motion
     val direction = motion.direction
     val position = motion.position

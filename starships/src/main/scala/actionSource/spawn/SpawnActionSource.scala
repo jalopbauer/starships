@@ -3,8 +3,8 @@ package actionSource.spawn
 import action.Action
 import action.spawn.SpawnAction
 import actionSource.ActionSource
-import gameData.GameData
+import gameData.PlayingGameData
 
 case class SpawnActionSource(spawnActions: List[SpawnAction]) extends ActionSource:
-  def createActions(gameData: GameData): List[Action] =
+  def createActions(gameData: PlayingGameData): List[Action] =
     spawnActions

@@ -1,6 +1,6 @@
 package factory.gameDataFactory
 
-import gameData.GameData
+import gameData.PlayingGameData
 
 trait GameDataFactory:
-  def create(): GameData
+  def create(): PlayingGameData
