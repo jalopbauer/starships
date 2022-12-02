@@ -1,9 +1,6 @@
 package factory.actionSourceFactory
 
-import action.movement.constantMovementAction.ConstantMovementActionBuilder
-import action.movement.constantRotationAction.ConstantRotationActionBuilder
-import action.movement.maxValueVariableMovementAction.MaxValueVariableMovementActionBuilder
-import action.movement.variableMovementAction.VariableMovementActionBuilder
+import action.movement.{ConstantMovementActionBuilder, ConstantRotationActionBuilder, MaxValueVariableMovementActionBuilder, VariableMovementActionBuilder}
 import actionSource.ActionSource
 import actionSource.movement.MovementActionSource
 import entity.value.{EntityType, KeyPress}

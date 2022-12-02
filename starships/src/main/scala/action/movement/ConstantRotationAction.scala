@@ -1,6 +1,5 @@
-package action.movement.constantRotationAction
+package action.movement
 
-import action.movement.MovementAction
 import entity.Entity
 import gameState.PlayingGameState
 

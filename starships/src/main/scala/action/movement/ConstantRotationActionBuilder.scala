@@ -1,7 +1,6 @@
-package action.movement.constantRotationAction
+package action.movement
 
-import action.movement.{MovementAction, MovementActionBuilder, MovementActionBuilderInput}
-import action.movement.constantMovementAction.ConstantMovementAction
+import action.movement.{ConstantMovementAction, MovementAction, MovementActionBuilder, MovementActionBuilderInput}
 
 class ConstantRotationActionBuilder(rotationValueInDegrees: Int) extends MovementActionBuilder:
   def build(actionBuilderInput: MovementActionBuilderInput): MovementAction =

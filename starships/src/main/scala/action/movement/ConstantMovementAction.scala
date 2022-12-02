@@ -1,11 +1,9 @@
-package action.movement.constantMovementAction
+package action.movement
 
-import action.Action
-import action.movement.MovementAction
 import entity.Entity
 import gameState.PlayingGameState
 
-case class ConstantMovementAction(entity: Entity) extends MovementAction:
+case class ConstantMovementAction(entity: Entity) extends MovementAction :
   def act(gameData: PlayingGameState): PlayingGameState =
     val motion = entity.motion
     val direction = motion.direction
@@ -13,5 +11,3 @@ case class ConstantMovementAction(entity: Entity) extends MovementAction:
     val newPosition = position.sum(direction)
     val newMotion = motion.copy(position = newPosition)
     gameData.add(entity.copy(motion = newMotion))
-
-

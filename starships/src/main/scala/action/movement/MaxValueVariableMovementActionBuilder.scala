@@ -1,8 +1,6 @@
-package action.movement.maxValueVariableMovementAction
+package action.movement
 
-import action.movement.constantMovementAction.ConstantMovementActionBuilder
-import action.movement.variableMovementAction.VariableMovementActionBuilder
-import action.movement.{MovementAction, MovementActionBuilder, MovementActionBuilderInput}
+import action.movement.{ConstantMovementActionBuilder, MovementAction, MovementActionBuilder, MovementActionBuilderInput}
 
 class MaxValueVariableMovementActionBuilder(maxValue: Int
                                             , variableMovementAction: VariableMovementActionBuilder
