@@ -4,7 +4,7 @@ import edu.austral.ingsis.starships.ui.ElementModel
 
 import entity.Entity
 import entity.value.{Collision, KeyPress}
-import gameData.PlayingGameData
+import gameState.PlayingGameState
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
@@ -12,7 +12,7 @@ import scala.collection.mutable.Map
 import javafx.collections.ObservableMap
 
 
-class MutableGameData(var gameData: PlayingGameData, var elements: ObservableMap[String, ElementModel]):
+class MutableGameState(var gameData: PlayingGameState, var elements: ObservableMap[String, ElementModel]):
   
   def addCollision(collision: Collision): Unit =
     gameData = gameData.add(collision)

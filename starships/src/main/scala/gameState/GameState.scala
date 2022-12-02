@@ -1,18 +1,18 @@
-package gameData
+package gameState
 
 import action.Action
 import entity.Entity
 import entity.value.{Collision, EntityType, KeyPress}
 import seed.{BooleanSeed, IntSeed}
 
-trait GameData:
+trait GameState:
 
   def entities: List[Entity]
 
-  def flush(): GameData
+  def flush(): GameState
 
   def ships:List[Entity]
 
-  def add(collision: Collision): GameData
-  def add(keyPress: KeyPress): GameData
-  def add(entity: Entity): GameData
+  def add(collision: Collision): GameState
+  def add(keyPress: KeyPress): GameState
+  def add(entity: Entity): GameState

@@ -11,13 +11,13 @@ import javafx.scene.input.KeyCode
 import javafx.stage.Stage
 import jugar.integrationUi.adapter.EntityAdapter
 import jugar.integrationUi.listener.{CollisionListener, KeyPressListener, TimePassedListener}
-import jugar.integrationUi.MutableGameData
+import jugar.integrationUi.MutableGameState
 
 class Starships() extends Application():
   private val imageResolver = CachedImageResolver(DefaultImageResolver())
   private val facade = ElementsViewFacade(imageResolver)
   private val keyTracker = KeyTracker()
-  private val mutableGameData = MutableGameData(RegularGameData().create(), facade.getElements)
+  private val mutableGameData = MutableGameState(RegularGameData().create(), facade.getElements)
   private val gameFlow = RegularGameFlowFactory().create()
 
   override def stop(): Unit =

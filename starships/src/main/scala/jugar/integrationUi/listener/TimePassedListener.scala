@@ -2,10 +2,10 @@ package jugar.integrationUi.listener
 
 import edu.austral.ingsis.starships.ui.{EventListener, TimePassed}
 import gameFlow.GameFlow
-import jugar.integrationUi.MutableGameData
+import jugar.integrationUi.MutableGameState
 import jugar.integrationUi.adapter.{EntityAdapter, IdAdapter}
 
-case class TimePassedListener(gameData: MutableGameData
+case class TimePassedListener(gameData: MutableGameState
                               , gameFlow: GameFlow)
   extends EventListener[TimePassed] :
   val idAdapter: IdAdapter = IdAdapter()

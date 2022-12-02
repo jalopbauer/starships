@@ -1,7 +1,7 @@
 package actionSource
 
 import action.Action
-import gameData.PlayingGameData
+import gameState.PlayingGameState
 
 trait ActionSource:
-  def createActions(gameData:PlayingGameData): List[Action]
+  def createActions(gameData:PlayingGameState): List[Action]
