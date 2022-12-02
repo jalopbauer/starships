@@ -1,6 +1,6 @@
 package factory.actionSourceFactory
 
-import action.collision.damageAction.CollisionDamageActionBuilder
+import action.collision.CollisionDamageActionBuilder
 import actionSource.ActionSource
 import actionSource.collision.CollisionActionSource
 import entity.value.EntityType
