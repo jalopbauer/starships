@@ -1,4 +1,4 @@
 package seed
 
-trait IntSeed:
+trait IntSeed(currentId: Int):
   def next: (Int, IntSeed)
