@@ -1,9 +1,11 @@
-
+import action.movement.*
 import action.collision.*
-import entity.value.EntityType
+import entity.value.{EntityType, KeyPress}
 import entity.value.motion.{Coordinate, Motion}
 import factory.actionSourceFactory.*
 import seed.*
+
+import scala.collection.immutable.Map
 
 class Config:
 
@@ -29,3 +31,27 @@ class Config:
       (EntityType.SHIP, EntityType.ASTEROID) -> (damageInCollision, damageInCollision)
       , (EntityType.SHIP, EntityType.SHOT) -> (damageInCollision, damageInCollision)
       , (EntityType.ASTEROID, EntityType.SHOT) -> (damageInCollision, damageInCollision))
+
+  val rightRotationBuilder: ConstantRotationActionBuilder = ConstantRotationActionBuilder(-15)
+  val leftRotationBuilder: ConstantRotationActionBuilder = ConstantRotationActionBuilder(15)
+  val variable: VariableMovementActionBuilder = VariableMovementActionBuilder(5)
+  val constantMovementActionBuilder: ConstantMovementActionBuilder = ConstantMovementActionBuilder()
+  val forward: MaxValueVariableMovementActionBuilder = MaxValueVariableMovementActionBuilder(25, variable, constantMovementActionBuilder)
+  val backwards: MaxValueVariableMovementActionBuilder = MaxValueVariableMovementActionBuilder(10, variable, constantMovementActionBuilder)
+
+  val entityMotion: Map[EntityType, List[MovementActionBuilder]] = Map(
+    EntityType.ASTEROID -> List(constantMovementActionBuilder)
+    , EntityType.SHOT -> List(constantMovementActionBuilder)
+    , EntityType.SHIP -> List())
+  
+  val entityKeyPressMotion: Map[(Int, KeyPress), List[MovementActionBuilder]] = Map(
+    (1, KeyPress("w")) -> List(forward)
+    , (1, KeyPress("s")) -> List(backwards)
+    , (1, KeyPress("a")) -> List(rightRotationBuilder)
+    , (1, KeyPress("d")) -> List(leftRotationBuilder)
+
+    , (2, KeyPress("k")) -> List(forward)
+    , (2, KeyPress("j")) -> List(backwards)
+    , (2, KeyPress("l")) -> List(rightRotationBuilder)
+    , (3, KeyPress("h")) -> List(leftRotationBuilder)
+  )
