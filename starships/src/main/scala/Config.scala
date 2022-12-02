@@ -1,5 +1,6 @@
 import action.movement.*
 import action.collision.*
+import action.spawn.*
 import entity.value.{EntityType, KeyPress}
 import entity.value.motion.{Coordinate, Motion}
 import factory.actionSourceFactory.*
@@ -43,7 +44,7 @@ class Config:
     EntityType.ASTEROID -> List(constantMovementActionBuilder)
     , EntityType.SHOT -> List(constantMovementActionBuilder)
     , EntityType.SHIP -> List())
-  
+
   val entityKeyPressMotion: Map[(Int, KeyPress), List[MovementActionBuilder]] = Map(
     (1, KeyPress("w")) -> List(forward)
     , (1, KeyPress("s")) -> List(backwards)
@@ -54,4 +55,27 @@ class Config:
     , (2, KeyPress("j")) -> List(backwards)
     , (2, KeyPress("l")) -> List(rightRotationBuilder)
     , (3, KeyPress("h")) -> List(leftRotationBuilder)
+  )
+
+  val spawnActionList = List(
+    ShotSpawnAction()
+    , SpawnAsteroidAction(Motion(Coordinate(1, 2), Coordinate(0, 0), 0), 1, 5)
+    , SpawnAsteroidAction(Motion(Coordinate(2, 1), Coordinate(0, 0), 0), 1, 5)
+    , SpawnAsteroidAction(Motion(Coordinate(3, 2), Coordinate(0, 0), 0), 2, 2)
+    , SpawnAsteroidAction(Motion(Coordinate(2, 3), Coordinate(0, 0), 0), 1, 2)
+
+    , SpawnAsteroidAction(Motion(Coordinate(-1, -2), Coordinate(800, 800), 0), 1, 5)
+    , SpawnAsteroidAction(Motion(Coordinate(-2, -1), Coordinate(800, 800), 0), 1, 5)
+    , SpawnAsteroidAction(Motion(Coordinate(-3, -2), Coordinate(800, 800), 0), 2, 2)
+    , SpawnAsteroidAction(Motion(Coordinate(-2, -3), Coordinate(800, 800), 0), 1, 2)
+
+    , SpawnAsteroidAction(Motion(Coordinate(1, -2), Coordinate(0, 800), 0), 1, 5)
+    , SpawnAsteroidAction(Motion(Coordinate(2, -1), Coordinate(0, 800), 0), 1, 5)
+    , SpawnAsteroidAction(Motion(Coordinate(3, -2), Coordinate(0, 800), 0), 2, 2)
+    , SpawnAsteroidAction(Motion(Coordinate(2, -3), Coordinate(0, 800), 0), 1, 2)
+
+    , SpawnAsteroidAction(Motion(Coordinate(-1, 2), Coordinate(800, 0), 0), 1, 5)
+    , SpawnAsteroidAction(Motion(Coordinate(-2, 1), Coordinate(800, 0), 0), 1, 5)
+    , SpawnAsteroidAction(Motion(Coordinate(-3, 2), Coordinate(800, 0), 0), 2, 2)
+    , SpawnAsteroidAction(Motion(Coordinate(-2, 3), Coordinate(800, 0), 0), 1, 2)
   )
