@@ -12,8 +12,8 @@ case class MovementActionSourceFactory() extends ActionSourceFactory:
     val forwardVariable = VariableMovementActionBuilder(3)
     val backwardsVariable = VariableMovementActionBuilder(-1)
     val constantMovementActionBuilder = ConstantMovementActionBuilder()
-    val forward = MaxValueVariableMovementActionBuilder(25, forwardVariable, constantMovementActionBuilder)
-    val backwards = MinValueVariableMovementActionBuilder(-10, backwardsVariable, constantMovementActionBuilder)
+    val forward = MaxValueVariableMovementActionBuilder(10, forwardVariable, constantMovementActionBuilder)
+    val backwards = MinValueVariableMovementActionBuilder(-5, backwardsVariable, constantMovementActionBuilder)
     MovementActionSource(
       Map(
         EntityType.ASTEROID -> List(constantMovementActionBuilder)
