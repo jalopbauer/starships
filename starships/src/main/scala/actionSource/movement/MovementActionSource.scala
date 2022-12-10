@@ -16,7 +16,7 @@ case class MovementActionSource(movementActionMap: Map[EntityType, List[Movement
         val mapKey = (entity.id, keystroke)
         movementActionMapWithKeyStroke.getOrElse(mapKey, List())
       })
-      println(keyStrokeActionList)
+      if (keyStrokeActionList.nonEmpty) println(keyStrokeActionList)
       val actionList = movementActionMap(entity.entityType)
       actionList.map(_.build(MovementActionBuilderInput(entity)))
         ++ keyStrokeActionList.map(_.build(MovementActionBuilderInput(entity)))

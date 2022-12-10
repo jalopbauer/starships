@@ -1,6 +1,6 @@
 package factory.actionSourceFactory
 
-import action.movement.{ConstantMovementActionBuilder, ConstantRotationActionBuilder, MaxValueVariableMovementActionBuilder, VariableMovementActionBuilder}
+import action.movement.{ConstantMovementActionBuilder, ConstantRotationActionBuilder, MaxValueVariableMovementActionBuilder, MinValueVariableMovementActionBuilder, VariableMovementActionBuilder}
 import actionSource.ActionSource
 import actionSource.movement.MovementActionSource
 import entity.value.{EntityType, KeyPress}
@@ -9,10 +9,11 @@ case class MovementActionSourceFactory() extends ActionSourceFactory:
   def create(): ActionSource = {
     val rightRotationBuilder = ConstantRotationActionBuilder(-15)
     val leftRotationBuilder = ConstantRotationActionBuilder(15)
-    val variable = VariableMovementActionBuilder(5)
+    val forwardVariable = VariableMovementActionBuilder(3)
+    val backwardsVariable = VariableMovementActionBuilder(-1)
     val constantMovementActionBuilder = ConstantMovementActionBuilder()
-    val forward = MaxValueVariableMovementActionBuilder(25, variable, constantMovementActionBuilder)
-    val backwards = MaxValueVariableMovementActionBuilder(10, variable, constantMovementActionBuilder)
+    val forward = MaxValueVariableMovementActionBuilder(25, forwardVariable, constantMovementActionBuilder)
+    val backwards = MinValueVariableMovementActionBuilder(-10, backwardsVariable, constantMovementActionBuilder)
     MovementActionSource(
       Map(
         EntityType.ASTEROID -> List(constantMovementActionBuilder)
