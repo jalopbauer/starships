@@ -7,4 +7,4 @@ import javafx.scene.input.KeyCode
 case class KeyPressAdapter():
   
   def themMe(keyPressed: KeyCode): KeyPress =
-    KeyPress(keyPressed.getChar)
+    KeyPress(keyPressed.getChar.toLowerCase())
