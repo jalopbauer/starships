@@ -36,7 +36,7 @@ class Starships() extends Application():
 
     primaryStage.setScene(scene)
     primaryStage.setHeight(800.0)
-    primaryStage.setHeight(800.0)
+    primaryStage.setWidth(800.0)
 
     facade.start()
     keyTracker.start()
