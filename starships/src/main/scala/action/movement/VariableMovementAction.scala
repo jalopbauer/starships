@@ -15,5 +15,5 @@ case class VariableMovementAction(gradient: Int, entity: Entity) extends Movemen
     val newDirection = previousDirection.sum(coordinateGradient)
     val newPosition = previousPosition.sum(newDirection)
     val newMotion = previousMotion.copy(position = newPosition, direction = newDirection)
-    println(newMotion)
+
     gameData.add(entity.copy(motion = newMotion))
