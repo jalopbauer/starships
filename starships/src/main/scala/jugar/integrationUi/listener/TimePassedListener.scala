@@ -20,4 +20,5 @@ case class TimePassedListener(gameData: MutableGameState
         val id = entityModel.getId
         gameData.elements.put(id, entityModel)
     })
+    gameData.gameData = data
     gameData.flush()
