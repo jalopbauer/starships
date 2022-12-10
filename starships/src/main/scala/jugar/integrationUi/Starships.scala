@@ -25,7 +25,10 @@ class Starships() extends Application():
     keyTracker.stop()
 
   def start(primaryStage: Stage): Unit =
-    mutableGameData.gameData.entities.map(EntityAdapter().meThem(_))
+    val initialEntities = mutableGameData.gameData.entities.map(EntityAdapter().meThem(_))
+    initialEntities.foreach(entityModel =>
+      mutableGameData.elements.put(entityModel.getId, entityModel)
+    )
 
     facade.getTimeListenable.addEventListener(listener.TimePassedListener(mutableGameData, gameFlow))
     facade.getCollisionsListenable.addEventListener(listener.CollisionListener(mutableGameData))
