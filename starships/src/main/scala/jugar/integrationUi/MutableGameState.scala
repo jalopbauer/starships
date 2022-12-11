@@ -9,11 +9,13 @@ import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.collection.mutable.Map
 import javafx.collections.ObservableMap
-import jugar.integrationUi.adapter.EntityAdapter
+import jugar.integrationUi.adapter.{EntityAdapter, IdAdapter}
 
 
 class MutableGameState(var gameData: PlayingGameState, var elements: ObservableMap[String, ElementModel]):
   val entityAdapter: EntityAdapter = EntityAdapter()
+  val idAdapter: IdAdapter = IdAdapter()
+
 
   def addCollision(collision: Collision): Unit =
     gameData = gameData.add(collision)
@@ -24,6 +26,9 @@ class MutableGameState(var gameData: PlayingGameState, var elements: ObservableM
   def flush(): Unit =
     gameData = gameData.flush()
 
+  def removeDeadEntities: Unit =
+    gameData.deadEntitiesSet.map(_ => elements.remove(idAdapter.meThem(_)))
+    gameData.removeDeadEntities
   def update(): Unit =
     gameData.modifiedEntitiesSet.foreach(entityId => {
     val optionalEntity = gameData.entitiesMap.get(entityId)

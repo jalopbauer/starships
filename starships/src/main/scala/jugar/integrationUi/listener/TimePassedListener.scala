@@ -17,3 +17,5 @@ case class TimePassedListener(mutableGameState: MutableGameState
     mutableGameState.update()
 
     mutableGameState.flush()
+    
+    mutableGameState.removeDeadEntities
