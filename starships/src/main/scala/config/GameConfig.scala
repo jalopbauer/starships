@@ -5,13 +5,13 @@ import action.movement.*
 import action.spawn.{ShotSpawnAction, SpawnAction, SpawnAsteroidAction}
 import entity.value.motion.{Coordinate, Motion}
 import entity.value.{EntityType, KeyPress}
-import factory.actionSourceFactory.{ActionSourceFactory, CollisionActionSourceFactory, MovementActionSourceFactory, SpawnActionSourceFactory}
+import factory.actionSourceFactory.{ActionSourceFactory, CollisionActionSourceFactory, MovementActionSourceFactory, AsteroidSpawnActionSourceFactory}
 import seed.{BooleanSeed, CrescendoIntSeed, IntSeed, PatternBooleanSeed}
 
 case object GameConfig:
 
   val actionSourcesFacories: List[ActionSourceFactory] = List(
-    SpawnActionSourceFactory()
+    AsteroidSpawnActionSourceFactory()
     , MovementActionSourceFactory()
     , CollisionActionSourceFactory()
   )

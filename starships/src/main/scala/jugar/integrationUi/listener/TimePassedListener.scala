@@ -10,8 +10,7 @@ case class TimePassedListener(mutableGameState: MutableGameState
   extends EventListener[TimePassed] :
 
   def handle(event: TimePassed): Unit =
-    val gameData = mutableGameState.gameData
-
+    val gameData = mutableGameState.gameData.copy(currentTime = event.getCurrentTimeInSeconds)
     val nextFrameGameData = gameFlow.nextFrame(gameData)
     mutableGameState.gameData = nextFrameGameData
 

@@ -10,7 +10,9 @@ case class PlayingGameState(collisions: List[Collision]
                             , keyPresses: List[KeyPress]
                             , modifiedEntitiesSet: Set[Int]
                             , idSeed: IntSeed
-                            , booleanSeed: BooleanSeed) extends GameState:
+                            , booleanSeed: BooleanSeed
+                            , previousSpawnTime: Double = 0
+                            , currentTime: Double = 0) extends GameState:
 
   def entities: List[Entity] = entitiesMap.values.toList
 
