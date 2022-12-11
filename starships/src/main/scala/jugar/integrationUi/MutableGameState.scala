@@ -26,7 +26,7 @@ class MutableGameState(var gameData: PlayingGameState, var elements: ObservableM
   def flush(): Unit =
     gameData = gameData.flush()
 
-  def removeDeadEntities: Unit =
+  def removeDeadEntities(): Unit =
     gameData.deadEntitiesSet.map(_ => elements.remove(idAdapter.meThem(_)))
     gameData.removeDeadEntities
   def update(): Unit =
