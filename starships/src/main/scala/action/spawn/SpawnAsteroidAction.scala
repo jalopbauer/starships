@@ -14,4 +14,4 @@ case class SpawnAsteroidAction(motion: Motion, damage: Int, health: Int) extends
       val nextIdSeed = gameData.idSeed.next
       gameData.add(Entity(nextIdSeed._1, EntityType.ASTEROID, motion, damage, health))
         .copy(booleanSeed = nextBooleanSeed._2, idSeed = nextIdSeed._2)
-    else gameData
+    else gameData.copy(booleanSeed = nextBooleanSeed._2)
