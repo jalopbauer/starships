@@ -17,12 +17,6 @@ case class TimePassedListener(mutableGameStateameData: MutableGameState
     val nextFrameGameData = gameFlow.nextFrame(gameData)
     mutableGameStateameData.gameData = nextFrameGameData
 
-    nextFrameGameData.modifiedEntitiesSet.foreach(entityId => {
-      val optionalEntity = nextFrameGameData.entitiesMap.get(entityId)
-      if (optionalEntity.isDefined)
-        val entityModel = entityAdapter.meThem(optionalEntity.get)
-        val id = entityModel.getId
-        mutableGameStateameData.elements.put(id, entityModel)
-    })
+    mutableGameStateameData.update()
 
     mutableGameStateameData.flush()
