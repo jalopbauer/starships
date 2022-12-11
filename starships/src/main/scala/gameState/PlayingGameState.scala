@@ -12,7 +12,8 @@ case class PlayingGameState(collisions: List[Collision]
                             , idSeed: IntSeed
                             , booleanSeed: BooleanSeed
                             , previousSpawnTime: Double = 0
-                            , currentTime: Double = 0) extends GameState:
+                            , currentTime: Double = 0
+                            , deadEntitiesSet: Set[Int] = Set()) extends GameState:
 
   def entities: List[Entity] = entitiesMap.values.toList
 
@@ -31,6 +32,11 @@ case class PlayingGameState(collisions: List[Collision]
   def add(entity: Entity): PlayingGameState =
     this.copy(entitiesMap = entitiesMap + (entity.id -> entity), modifiedEntitiesSet = modifiedEntitiesSet + entity.id)
 
+  def killEntity(entity: Entity): PlayingGameState =
+    this.copy(deadEntitiesSet = deadEntitiesSet + entity.id)
+
+  def removeDeadEntities: PlayingGameState =
+    this.copy(entitiesMap = entitiesMap.removedAll(deadEntitiesSet))
 object PlayingGameState:
   def apply(entitiesMap: Map[Int, Entity]
             , seed: IntSeed
