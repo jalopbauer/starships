@@ -5,20 +5,24 @@ import gameFlow.GameFlow
 import jugar.integrationUi.MutableGameState
 import jugar.integrationUi.adapter.{EntityAdapter, IdAdapter}
 
-case class TimePassedListener(gameData: MutableGameState
+case class TimePassedListener(mutableGameStateameData: MutableGameState
                               , gameFlow: GameFlow)
   extends EventListener[TimePassed] :
   val idAdapter: IdAdapter = IdAdapter()
   val entityAdapter: EntityAdapter = EntityAdapter()
 
   def handle(event: TimePassed): Unit =
-    val data = gameFlow.nextFrame(gameData.gameData)
-    data.modifiedEntitiesSet.foreach(entityId => {
-      val optionalEntity = data.entitiesMap.get(entityId)
+    val gameData = mutableGameStateameData.gameData
+
+    val nextFrameGameData = gameFlow.nextFrame(gameData)
+    mutableGameStateameData.gameData = nextFrameGameData
+
+    nextFrameGameData.modifiedEntitiesSet.foreach(entityId => {
+      val optionalEntity = nextFrameGameData.entitiesMap.get(entityId)
       if (optionalEntity.isDefined)
         val entityModel = entityAdapter.meThem(optionalEntity.get)
         val id = entityModel.getId
-        gameData.elements.put(id, entityModel)
+        mutableGameStateameData.elements.put(id, entityModel)
     })
-    gameData.gameData = data
-    gameData.flush()
+
+    mutableGameStateameData.flush()
