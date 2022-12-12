@@ -2,7 +2,7 @@ package entity.value.motion
 
 import scala.math.{pow, sqrt}
 
-case class Coordinate(x: Int, y: Int):
+case class Coordinate(x: Double, y: Double):
   
   def sum(coordinate: Coordinate): Coordinate =
     this.copy(x + coordinate.x, y + coordinate.y)

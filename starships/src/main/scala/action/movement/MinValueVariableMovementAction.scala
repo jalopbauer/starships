@@ -8,5 +8,5 @@ case class MinValueVariableMovementAction(maxValue: Int
                                           , constantMovementAction: ConstantMovementAction
                                           , entity: Entity) extends MovementAction :
   def act(gameData: PlayingGameState): PlayingGameState =
-    if (entity.motion.direction.dontKnowName <= maxValue) constantMovementAction.act(gameData)
+    if (entity.motion.speed <= maxValue) constantMovementAction.act(gameData)
     else variableMovementAction.act(gameData)

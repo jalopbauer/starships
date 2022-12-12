@@ -4,16 +4,10 @@ import entity.Entity
 import entity.value.motion.Coordinate
 import gameState.PlayingGameState
 
-case class VariableMovementAction(gradient: Int, entity: Entity) extends MovementAction :
+case class VariableMovementAction(acceleration: Int, entity: Entity) extends MovementAction :
   def act(gameData: PlayingGameState): PlayingGameState =
     val previousMotion = entity.motion
-    val previousDirection = previousMotion.direction
-    val previousPosition = previousMotion.position
-
-    val coordinateGradient = Coordinate(gradient,gradient)
-
-    val newDirection = previousDirection.sum(coordinateGradient)
-    val newPosition = previousPosition.sum(newDirection)
-    val newMotion = previousMotion.copy(position = newPosition, direction = newDirection)
-
+    val previousSpeed = previousMotion.speed
+    val newSpeed = previousSpeed + acceleration
+    val newMotion = previousMotion.copy(speed = newSpeed).newMotion
     gameData.add(entity.copy(motion = newMotion))
