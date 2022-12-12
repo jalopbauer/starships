@@ -8,5 +8,7 @@ import entity.value.motion.{Coordinate, Motion}
 
 case class ShotSpawnActionSourceFactory() extends ActionSourceFactory:
   def create(): ActionSource =
-    SpawnActionSource(List(ShotSpawnAction()))
+    SpawnActionSource(List(
+      ShotSpawnAction()
+    ))
 

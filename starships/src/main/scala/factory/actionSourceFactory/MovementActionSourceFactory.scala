@@ -9,8 +9,8 @@ case class MovementActionSourceFactory() extends ActionSourceFactory:
   def create(): ActionSource = {
     val rightRotationBuilder = ConstantRotationActionBuilder(-15)
     val leftRotationBuilder = ConstantRotationActionBuilder(15)
-    val forwardVariable = VariableMovementActionBuilder(3)
-    val backwardsVariable = VariableMovementActionBuilder(-1)
+    val forwardVariable = VariableMovementActionBuilder(1.2)
+    val backwardsVariable = VariableMovementActionBuilder(-0.5)
     val constantMovementActionBuilder = ConstantMovementActionBuilder()
     val forward = MaxValueVariableMovementActionBuilder(10, forwardVariable, constantMovementActionBuilder)
     val backwards = MinValueVariableMovementActionBuilder(-5, backwardsVariable, constantMovementActionBuilder)
@@ -18,7 +18,7 @@ case class MovementActionSourceFactory() extends ActionSourceFactory:
       Map(
         EntityType.ASTEROID -> List(constantMovementActionBuilder)
         , EntityType.SHOT -> List(constantMovementActionBuilder)
-        , EntityType.SHIP -> List())
+        , EntityType.SHIP -> List(constantMovementActionBuilder))
       , Map(
         (1, KeyPress("w")) -> List(forward)
         , (1, KeyPress("s")) -> List(backwards)

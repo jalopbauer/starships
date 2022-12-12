@@ -1,7 +1,7 @@
 package actionSource.movement
 
 import action.Action
-import action.movement.{MovementAction, MovementActionBuilder, MovementActionBuilderInput}
+import action.movement.{ConstantMovementActionBuilder, MovementAction, MovementActionBuilder, MovementActionBuilderInput}
 import actionSource.ActionSource
 import entity.value.{EntityType, KeyPress}
 import gameState.PlayingGameState

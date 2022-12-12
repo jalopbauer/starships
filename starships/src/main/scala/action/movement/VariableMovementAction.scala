@@ -4,7 +4,7 @@ import entity.Entity
 import entity.value.motion.Coordinate
 import gameState.PlayingGameState
 
-case class VariableMovementAction(acceleration: Int, entity: Entity) extends MovementAction :
+case class VariableMovementAction(acceleration: Double, entity: Entity) extends MovementAction :
   def act(gameData: PlayingGameState): PlayingGameState =
     val previousMotion = entity.motion
     val previousSpeed = previousMotion.speed
