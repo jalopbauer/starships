@@ -3,7 +3,7 @@ package action.movement
 import entity.Entity
 import gameState.PlayingGameState
 
-case class ConstantRotationAction(rotationValueInDegrees: Int, entity: Entity) extends MovementAction :
+case class ConstantRotationAction(rotationValueInDegrees: Double, entity: Entity) extends MovementAction :
   def act(gameData: PlayingGameState): PlayingGameState =
     val newDegree = entity.motion.degree + rotationValueInDegrees
     val newMotion = entity.motion.copy(degree = newDegree)
