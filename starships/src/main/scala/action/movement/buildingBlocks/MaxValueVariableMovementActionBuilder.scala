@@ -5,7 +5,7 @@ import action.movement.{MovementAction, MovementActionBuilder, MovementActionBui
 class MaxValueVariableMovementActionBuilder(maxValue: Int
                                             , variableMovementAction: VariableMovementActionBuilder
                                             , constantMovementActionBuilder: ConstantMovementActionBuilder) extends MovementActionBuilder:
-  def build(actionBuilderInput: MovementActionBuilderInput): MovementAction =
+  def build(actionBuilderInput: MovementActionBuilderInput): MaxValueVariableMovementAction =
     MaxValueVariableMovementAction(maxValue
       , variableMovementAction.build(actionBuilderInput)
       , constantMovementActionBuilder.build(actionBuilderInput)
