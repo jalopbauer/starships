@@ -1,5 +1,6 @@
-package action.movement
+package action.movement.buildingBlocks
 
+import action.movement.MovementAction
 import entity.Entity
 import gameState.PlayingGameState
 

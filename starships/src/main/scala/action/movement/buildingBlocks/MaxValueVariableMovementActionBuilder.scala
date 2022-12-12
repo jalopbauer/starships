@@ -1,12 +1,12 @@
-package action.movement
+package action.movement.buildingBlocks
 
-import action.movement.{ConstantMovementActionBuilder, MovementAction, MovementActionBuilder, MovementActionBuilderInput}
+import action.movement.{MovementAction, MovementActionBuilder, MovementActionBuilderInput}
 
-class MinValueVariableMovementActionBuilder(maxValue: Int
+class MaxValueVariableMovementActionBuilder(maxValue: Int
                                             , variableMovementAction: VariableMovementActionBuilder
                                             , constantMovementActionBuilder: ConstantMovementActionBuilder) extends MovementActionBuilder:
   def build(actionBuilderInput: MovementActionBuilderInput): MovementAction =
-    MinValueVariableMovementAction(maxValue
+    MaxValueVariableMovementAction(maxValue
       , variableMovementAction.build(actionBuilderInput)
       , constantMovementActionBuilder.build(actionBuilderInput)
       , actionBuilderInput.entity)

@@ -1,8 +1,7 @@
-package action.movement
+package action.movement.buildingBlocks
 
-import Math.*
+import action.movement.MovementAction
 import entity.Entity
-import entity.value.motion.Coordinate
 import gameState.PlayingGameState
 
 case class ConstantMovementAction(entity: Entity) extends MovementAction :

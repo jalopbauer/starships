@@ -1,7 +1,7 @@
-package action.movement
+package action.movement.buildingBlocks
 
+import action.movement.MovementAction
 import entity.Entity
-import entity.value.motion.Coordinate
 import gameState.PlayingGameState
 
 case class VariableMovementAction(acceleration: Double, entity: Entity) extends MovementAction :
