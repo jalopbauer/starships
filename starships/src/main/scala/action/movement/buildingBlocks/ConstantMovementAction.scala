@@ -9,6 +9,6 @@ case class ConstantMovementAction(entity: Entity) extends MovementAction :
     val newMotion = entity.motion.newMotion
     gameData.add(entity.copy(motion = newMotion))
 
-case class ConstantMovementActionBuilder() extends MovementActionBuilder[ConstantMovementAction]:
+case class ConstantMovementActionBuilder() extends MovementActionBuilder:
   def build(actionBuilderInput: MovementActionBuilderInput): ConstantMovementAction =
     ConstantMovementAction(actionBuilderInput.entity)

@@ -15,7 +15,7 @@ case class MaxValueVariableMovementAction(maxValue: Int
 case class MaxValueVariableMovementActionBuilder(maxValue: Int
                                                  , variableMovementAction: VariableMovementActionBuilder
                                                  , constantMovementActionBuilder: ConstantMovementActionBuilder
-                                                ) extends MovementActionBuilder[MaxValueVariableMovementAction]:
+                                                ) extends MovementActionBuilder:
   def build(actionBuilderInput: MovementActionBuilderInput): MaxValueVariableMovementAction =
     MaxValueVariableMovementAction(maxValue
       , variableMovementAction.build(actionBuilderInput)

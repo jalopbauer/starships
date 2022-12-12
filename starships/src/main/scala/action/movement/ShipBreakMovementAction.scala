@@ -12,7 +12,7 @@ case class ShipBreakMovementAction(entity: Entity, keyPress: KeyPress
 
 case class ShipBreakMovementActionBuilder(keyPress: KeyPress
                                           , slowDownMovementAction: SpeedReductionMovementActionBuilder
-                                           ) extends MovementActionBuilder[ShipBreakMovementAction] :
+                                           ) extends MovementActionBuilder:
   def build(actionBuilderInput: MovementActionBuilderInput): ShipBreakMovementAction =
     ShipBreakMovementAction(actionBuilderInput.entity
       , keyPress

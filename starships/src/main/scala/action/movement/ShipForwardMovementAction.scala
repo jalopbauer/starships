@@ -16,7 +16,7 @@ case class ShipForwardMovementActionBuilder(
                                              keyPress: KeyPress
                                             , maxValueVariableMovementAction: MaxValueVariableMovementActionBuilder
                                             , slowDownMovementAction: SpeedReductionMovementActionBuilder
-                                           ) extends MovementActionBuilder[ShipForwardMovementAction] :
+                                           ) extends MovementActionBuilder :
   def build(actionBuilderInput: MovementActionBuilderInput): ShipForwardMovementAction =
     ShipForwardMovementAction(actionBuilderInput.entity
       , keyPress

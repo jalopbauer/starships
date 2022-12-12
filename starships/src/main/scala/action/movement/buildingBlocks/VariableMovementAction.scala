@@ -13,6 +13,6 @@ case class VariableMovementAction(acceleration: Double, entity: Entity) extends 
     val newMotion = previousMotion.copy(speed = newSpeed).newMotion
     gameData.add(entity.copy(motion = newMotion))
 
-case class VariableMovementActionBuilder(gradient: Double) extends MovementActionBuilder[VariableMovementAction]:
+case class VariableMovementActionBuilder(gradient: Double) extends MovementActionBuilder:
   def build(actionBuilderInput: MovementActionBuilderInput): VariableMovementAction =
     VariableMovementAction(gradient, actionBuilderInput.entity)

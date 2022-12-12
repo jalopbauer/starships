@@ -11,6 +11,6 @@ case class ConstantRotationAction(rotationValueInDegrees: Double, entity: Entity
     val newMotion = entity.motion.copy(degree = newDegree)
     gameData.add(entity.copy(motion = newMotion))
 
-class ConstantRotationActionBuilder(rotationValueInDegrees: Double) extends MovementActionBuilder[ConstantRotationAction]:
+class ConstantRotationActionBuilder(rotationValueInDegrees: Double) extends MovementActionBuilder:
   def build(actionBuilderInput: MovementActionBuilderInput): ConstantRotationAction =
     ConstantRotationAction(rotationValueInDegrees, actionBuilderInput.entity)

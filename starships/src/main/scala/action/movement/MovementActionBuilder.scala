@@ -2,5 +2,5 @@ package action.movement
 
 import action.ActionBuilder
 
-trait MovementActionBuilder[T <: MovementAction]() extends ActionBuilder[MovementActionBuilderInput, T]:
-  def build(actionBuilderInput: MovementActionBuilderInput): T
+trait MovementActionBuilder() extends ActionBuilder[MovementActionBuilderInput, MovementAction]:
+  def build(actionBuilderInput: MovementActionBuilderInput): MovementAction

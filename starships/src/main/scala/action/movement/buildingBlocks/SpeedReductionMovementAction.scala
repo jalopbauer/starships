@@ -14,6 +14,6 @@ case class SpeedReductionMovementAction(deacceleration: Double, entity: Entity) 
     val newMotion = previousMotion.copy(speed = newSpeed).newMotion
     gameData.add(entity.copy(motion = newMotion))
 
-case class SpeedReductionMovementActionBuilder(deacceleration: Double) extends MovementActionBuilder[SpeedReductionMovementAction]:
+case class SpeedReductionMovementActionBuilder(deacceleration: Double) extends MovementActionBuilder:
   def build(actionBuilderInput: MovementActionBuilderInput): SpeedReductionMovementAction =
     SpeedReductionMovementAction(deacceleration, actionBuilderInput.entity)
