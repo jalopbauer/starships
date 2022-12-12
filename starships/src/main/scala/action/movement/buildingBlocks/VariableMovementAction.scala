@@ -8,6 +8,7 @@ case class VariableMovementAction(acceleration: Double, entity: Entity) extends 
   def act(gameData: PlayingGameState): PlayingGameState =
     val previousMotion = entity.motion
     val previousSpeed = previousMotion.speed
-    val newSpeed = previousSpeed + acceleration
+    val newTentativeSpeed = previousSpeed + acceleration
+    val newSpeed = if (newTentativeSpeed <= 0) 0 else newTentativeSpeed
     val newMotion = previousMotion.copy(speed = newSpeed).newMotion
     gameData.add(entity.copy(motion = newMotion))
