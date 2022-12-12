@@ -7,17 +7,8 @@ import actionSource.ActionSource
 import entity.value.{EntityType, KeyPress}
 import gameState.PlayingGameState
 
-case class MovementActionSource(movementActionMap: Map[EntityType, List[MovementActionBuilder[MovementAction]]]
-                                , movementActionMapWithKeyStroke: Map[(Int, KeyPress), List[MovementActionBuilder[MovementAction]]]) extends ActionSource:
-//  Claramente esto muy feo y hay que cambiar algo
+case class MovementActionSource(movementActionMap: Map[EntityType, MovementActionBuilder[MovementAction]]) extends ActionSource:
   def createActions(gameData: PlayingGameState): List[Action] =
-    val entities = gameData.entities
-    entities.flatMap(entity => {
-      val keyStrokeActionList = gameData.keyPresses.flatMap(keystroke => {
-        val mapKey = (entity.id, keystroke)
-        movementActionMapWithKeyStroke.getOrElse(mapKey, List())
-      })
-      val actionList = movementActionMap(entity.entityType)
-      actionList.map(_.build(MovementActionBuilderInput(entity)))
-        ++ keyStrokeActionList.map(_.build(MovementActionBuilderInput(entity)))
-    })
+    gameData.entities.map(entity =>
+      movementActionMap(entity.entityType).build(MovementActionBuilderInput(entity))
+    )
