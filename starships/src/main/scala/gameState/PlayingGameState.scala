@@ -5,7 +5,7 @@ import entity.Entity
 import entity.value.{Collision, EntityType, KeyPress}
 import seed.{BooleanSeed, IntSeed}
 
-case class PlayingGameState(collisions: List[Collision]
+case class PlayingGameState(  collisions: List[Collision]
                             , entitiesMap: Map[Int, Entity]
                             , keyPresses: List[KeyPress]
                             , modifiedEntitiesSet: Set[Int]
@@ -13,6 +13,7 @@ case class PlayingGameState(collisions: List[Collision]
                             , booleanSeed: BooleanSeed
                             , previousSpawnTime: Double = 0
                             , currentTime: Double = 0
+                            , secondsSinceLastTime: Double = 0
                             , deadEntitiesSet: Set[Int] = Set()) extends GameState:
 
   def entities: List[Entity] = entitiesMap.values.toList

@@ -1,8 +1,12 @@
 package entity.value.motion
-case class Motion(position: Coordinate, angleInDegrees: Double, speed: Speed):
+case class Motion(position: Coordinate, rotation: Rotation, speed: Speed):
   def moveForward(secondsSinceLastTime: Double): Motion =
-    this.copy(speed = speed.moveForward(angleInDegrees, secondsSinceLastTime))
-  def rotateLeft(rotationAngleInDegrees: Double): Motion =
-    this.copy(angleInDegrees = angleInDegrees + rotationAngleInDegrees)
-  def rotateRight(rotationAngleInDegrees: Double): Motion =
-    this.copy(angleInDegrees = angleInDegrees - rotationAngleInDegrees)
+    this.copy(speed = speed.moveForward(rotation.angleInDegrees, secondsSinceLastTime))
+  def moveBackward(secondsSinceLastTime: Double): Motion =
+    this.copy(speed = speed.moveBackward(rotation.angleInDegrees, secondsSinceLastTime))
+
+  def rotateLeft: Motion =
+    this.copy(rotation = rotation.rotateLeft)
+
+  def rotateRight: Motion =
+    this.copy(rotation = rotation.rotateRight)

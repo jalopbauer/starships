@@ -14,7 +14,7 @@ case class EntityAdapter():
       , entity.motion.position.y
       , 30.0
       , 30.0
-      , entity.motion.angleInDegrees
+      , entity.motion.rotation.angleInDegrees
       , entityTypeAdapter.meThem(entity.entityType)
       , null
     )
