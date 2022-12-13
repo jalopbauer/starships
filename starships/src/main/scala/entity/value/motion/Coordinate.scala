@@ -13,3 +13,9 @@ case class Coordinate(x: Double, y: Double):
   def *(coefficient: Double): Coordinate =
     Coordinate(x * coefficient, y * coefficient)
 
+  def length: Double =
+    sqrt(x*x + y*y)
+
+  def normalize: Coordinate =
+    val length = this.length
+    Coordinate(x/length, y/length)
