@@ -3,7 +3,7 @@ package action
 import entity.Entity
 import gameState.PlayingGameState
 
-case class DamageAction(entity: Entity, damage: Int) extends SingleEntityAction(entity) :
+case class DamageAction(entity: Entity, damage: Int) extends Action:
   def act(gameData: PlayingGameState): PlayingGameState =
     val health = entity.health - damage
     val damagedEntity = entity.copy(health = health)

@@ -1,10 +1,9 @@
 package action.movement
 
-import action.SingleEntityAction
 import entity.Entity
 import gameState.PlayingGameState
 
-case class BackwardMovementAction(entity: Entity) extends MovementAction with SingleEntityAction(entity):
+case class BackwardMovementAction(entity: Entity) extends MovementAction:
   def act(gameData: PlayingGameState): PlayingGameState =
     val newMotion = entity.motion.moveBackward(gameData.secondsSinceLastTime)
     val newEntity = entity.copy(motion = newMotion)

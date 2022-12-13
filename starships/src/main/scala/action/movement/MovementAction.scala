@@ -1,7 +1,7 @@
 package action.movement
 
-import action.SingleEntityAction
+import action.Action
 import entity.Entity
 import gameState.PlayingGameState
 
-trait MovementAction extends SingleEntityAction
+trait MovementAction extends Action
