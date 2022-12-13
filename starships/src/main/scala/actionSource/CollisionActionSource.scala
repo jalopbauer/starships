@@ -1,18 +1,17 @@
-package actionSource.collision
+package actionSource
 
 import action.Action
 import action.collision.{CollisionActionBuilder, CollisionActionBuilderInput}
-import actionSource.ActionSource
 import entity.value.EntityType
 import gameState.PlayingGameState
 
-case class CollisionActionSource(collisionsActionMap: Map[(EntityType, EntityType), (List[CollisionActionBuilder], List[CollisionActionBuilder])]) extends ActionSource:
+case class CollisionActionSource(collisionsActionMap: Map[(EntityType, EntityType), (List[CollisionActionBuilder], List[CollisionActionBuilder])]) extends ActionSource :
   def createActions(gameData: PlayingGameState): List[Action] =
     val collisions = gameData.collisions
     collisions.flatMap(collision => {
       val actionListTuple = collisionsActionMap.get(collision.getEntityTypeTuple) match {
         case None => collisionsActionMap.get(collision.inverse.getEntityTypeTuple) match
-          case None => (List():List[CollisionActionBuilder], List(): List[CollisionActionBuilder])
+          case None => (List(): List[CollisionActionBuilder], List(): List[CollisionActionBuilder])
           case Some(value) => value
         case Some(value) => value
       }

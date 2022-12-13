@@ -1,8 +1,7 @@
 package factory.actionSourceFactory
 
 import action.spawn.*
-import actionSource.ActionSource
-import actionSource.spawn.SpawnActionSource
+import actionSource.{ActionSource, SpawnActionSource}
 import entity.value.motion.{Coordinate, Motion}
 
 case class ShotSpawnActionSourceFactory() extends ActionSourceFactory:
