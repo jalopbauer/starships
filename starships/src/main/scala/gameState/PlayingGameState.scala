@@ -38,6 +38,9 @@ case class PlayingGameState(  collisions: List[Collision]
 
   def removeDeadEntities: PlayingGameState =
     this.copy(entitiesMap = entitiesMap.removedAll(deadEntitiesSet))
+    
+  def contains(keyPress: KeyPress): Boolean =
+    keyPresses.contains(keyPress)
 object PlayingGameState:
   def apply(entitiesMap: Map[Int, Entity]
             , seed: IntSeed
