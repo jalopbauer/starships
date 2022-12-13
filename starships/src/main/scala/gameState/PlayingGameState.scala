@@ -5,12 +5,12 @@ import entity.Entity
 import entity.value.{Collision, EntityType, KeyPress}
 import seed.{BooleanSeed, IntSeed}
 
-case class PlayingGameState(  collisions: List[Collision]
-                            , entitiesMap: Map[Int, Entity]
-                            , keyPresses: List[KeyPress]
-                            , modifiedEntitiesSet: Set[Int]
+case class PlayingGameState(  entitiesMap: Map[Int, Entity]
                             , idSeed: IntSeed
                             , booleanSeed: BooleanSeed
+                            , keyPresses: List[KeyPress] = List()
+                            , modifiedEntitiesSet: Set[Int] = Set()
+                            , collisions: List[Collision] = List()
                             , previousSpawnTime: Double = 0
                             , currentTime: Double = 0
                             , secondsSinceLastTime: Double = 0
@@ -44,8 +44,3 @@ case class PlayingGameState(  collisions: List[Collision]
     
   def entity(entityId: Int): Option[Entity] =
     entitiesMap.get(entityId)
-object PlayingGameState:
-  def apply(entitiesMap: Map[Int, Entity]
-            , seed: IntSeed
-            , booleanSeed: BooleanSeed): PlayingGameState =
-    PlayingGameState(List(), entitiesMap, List(), Set(), seed, booleanSeed)
