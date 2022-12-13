@@ -12,8 +12,7 @@ case class ControlledMovementAction(  entity: Entity
                                     , rotateRightKeyPress: KeyPress
                                    ) extends MovementAction:
   def act(gameData: PlayingGameState): PlayingGameState =
-    KeyPressIsActiveAction(forwardKeyPress, ForwardMovementAction(entity))
-    KeyPressIsActiveAction(backwardsKeyPress, BackwardMovementAction(entity))
-    KeyPressIsActiveAction(rotateLeftKeyPress, RotateLeftAction(entity))
-    KeyPressIsActiveAction(rotateLeftKeyPress, RotateLeftAction(entity))
-    gameData
+    val forwardMovementActionGameData = KeyPressIsActiveAction(forwardKeyPress, ForwardMovementAction(entity)).act(gameData)
+    val backwardMovementActionGameData = KeyPressIsActiveAction(backwardsKeyPress, BackwardMovementAction(entity)).act(forwardMovementActionGameData)
+    val rotateLeftActionGameData = KeyPressIsActiveAction(rotateLeftKeyPress, RotateLeftAction(entity)).act(backwardMovementActionGameData)
+    KeyPressIsActiveAction(rotateLeftKeyPress, RotateLeftAction(entity)).act(rotateLeftActionGameData)
