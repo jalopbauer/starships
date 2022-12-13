@@ -1,9 +1,10 @@
 package action.movement
 
+import action.SingleEntityAction
 import entity.Entity
 import gameState.PlayingGameState
 
-case class RotateRightAction(entity: Entity, rotationAngleInDegrees: Double) extends MovementAction(entity):
+case class RotateRightAction(entity: Entity, rotationAngleInDegrees: Double) extends SingleEntityAction(entity):
   def act(gameData: PlayingGameState): PlayingGameState =
     val newMotion = entity.motion.rotateRight
     val newEntity = entity.copy(motion = newMotion)
