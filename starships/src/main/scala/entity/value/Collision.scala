@@ -3,7 +3,5 @@ package entity.value
 import entity.Entity
 
 case class Collision(leftEntity: Entity, rightEntity: Entity):
-  def getEntityTypeTuple: (EntityType, EntityType) =
-    (leftEntity.entityType, rightEntity.entityType)
-
-  def inverse: Collision = this.copy(rightEntity, leftEntity)
+  def entityTypeCollision: EntityTypeCollision =
+    EntityTypeCollision(leftEntity.entityType, rightEntity.entityType)

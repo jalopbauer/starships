@@ -1,8 +1,9 @@
 package action.collision
 
-import action.DamageAction
+import action.{Action, TwoEntitiesDamageEachOtherAction}
+import entity.value.Collision
 import gameState.PlayingGameState
 
-case class CollisionDamageAction(damageAction: DamageAction) extends CollisionAction :
+case class CollisionDamageAction(collision: Collision) extends CollisionAction:
   def act(gameData: PlayingGameState): PlayingGameState =
-    damageAction.act(gameData)
+    TwoEntitiesDamageEachOtherAction(collision.leftEntity, collision.rightEntity).act(gameData)
