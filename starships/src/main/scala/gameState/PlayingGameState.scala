@@ -41,6 +41,9 @@ case class PlayingGameState(  collisions: List[Collision]
     
   def contains(keyPress: KeyPress): Boolean =
     keyPresses.contains(keyPress)
+    
+  def entity(entityId: Int): Option[Entity] =
+    entitiesMap.get(entityId)
 object PlayingGameState:
   def apply(entitiesMap: Map[Int, Entity]
             , seed: IntSeed
