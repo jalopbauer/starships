@@ -1,5 +1,6 @@
 package action.collision
 
+import action.DamageAction
 import gameState.PlayingGameState
 
 case class CollisionDamageAction(damageAction: DamageAction) extends CollisionAction :

@@ -1,6 +1,5 @@
-package action.collision
+package action
 
-import action.{Action, SingleEntityAction}
 import entity.Entity
 import gameState.PlayingGameState
 
