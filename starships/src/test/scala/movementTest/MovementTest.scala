@@ -18,8 +18,9 @@ class MovementTest extends AnyFunSuite {
   val noRotation: Rotation = Rotation(0, 0)
   val speedOneOne: Speed = Speed(Coordinate(1, 1), 0, 0)
   val asteroid: Entity = Entity(1, EntityType.ASTEROID, Motion(zeroZero, noRotation, speedOneOne), 1, 5)
-  val ship: Entity = Entity(2, EntityType.SHOT, Motion(zeroZero, noRotation, speedOneOne), 1, 5)
-  val gameData: PlayingGameState = PlayingGameState(Map(1 -> asteroid, 2 -> ship), seed, booleanSeed)
+  val shot: Entity = Entity(2, EntityType.SHOT, Motion(zeroZero, noRotation, speedOneOne), 1, 5)
+  val ship: Entity = Entity(3, EntityType.SHIP, Motion(zeroZero, noRotation, speedOneOne), 1, 5)
+  val gameData: PlayingGameState = PlayingGameState(Map(1 -> asteroid, 2 -> shot, 3 -> ship), seed, booleanSeed)
   val gameFlow: GameFlow = GameFlow(List(MoveActionSource(RegularMoveActionSourceConfig())))
 
   test ("Asteroid moves correctly") {
@@ -34,4 +35,9 @@ class MovementTest extends AnyFunSuite {
     assert(entity.get.motion.position == Coordinate(1, 1))
   }
 
+  test("Ship moves correctly") {
+    val playingGameState = gameFlow.nextFrame(gameData)
+    val entity = playingGameState.entity(3)
+    assert(entity.get.motion.position == Coordinate(1, 1))
+  }
 }
