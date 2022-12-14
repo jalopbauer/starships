@@ -6,4 +6,4 @@ import gameState.PlayingGameState
 
 case class CollisionDamageAction(collision: Collision) extends CollisionAction:
   def act(gameData: PlayingGameState): PlayingGameState =
-    TwoEntitiesDamageEachOtherAction(collision.leftEntity, collision.rightEntity).act(gameData)
+    TwoEntitiesDamageEachOtherAction(collision.leftEntity.id, collision.rightEntity.id).act(gameData)

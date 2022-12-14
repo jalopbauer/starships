@@ -3,7 +3,9 @@ package action
 import entity.Entity
 import gameState.PlayingGameState
 
-case class TwoEntitiesDamageEachOtherAction(leftEntity: Entity, rightEntity: Entity) extends Action:
+case class TwoEntitiesDamageEachOtherAction(leftEntityId: Int, rightEntityId: Int) extends Action:
   def act(gameData: PlayingGameState): PlayingGameState =
-    DamageAction(rightEntity, leftEntity.damage).act(DamageAction(leftEntity, rightEntity.damage).act(gameData))
+    val leftEntity = gameData.entity(leftEntityId).get
+    val rightEntity = gameData.entity(rightEntityId).get
+    DamageAction(leftEntityId, leftEntity.damage).act(DamageAction(rightEntityId, rightEntity.damage).act(gameData))
 

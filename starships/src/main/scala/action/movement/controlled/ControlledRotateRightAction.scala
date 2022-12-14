@@ -6,8 +6,8 @@ import entity.Entity
 import entity.value.KeyPress
 import gameState.PlayingGameState
 
-case class ControlledRotateRightAction(entity: Entity
+case class ControlledRotateRightAction(id: Int
                                        , rotateRightKeyPress: KeyPress
                                    ) extends MovementAction :
   def act(gameData: PlayingGameState): PlayingGameState =
-    KeyPressIsActiveAction(rotateRightKeyPress, RotateRightAction(entity)).act(gameData)
+    KeyPressIsActiveAction(rotateRightKeyPress, RotateRightAction(id)).act(gameData)

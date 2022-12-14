@@ -8,4 +8,4 @@ import gameState.PlayingGameState
 
 case class MoveActionSource(moveActionSourceConfig: MoveActionSourceConfig) extends ActionSource:
   def createActions(gameData: PlayingGameState): List[Action] =
-    gameData.entities.filter(entity => moveActionSourceConfig.entityTypes.contains(entity.entityType)).map(MoveAction(_))
+    gameData.entities.filter(entity => moveActionSourceConfig.entityTypes.contains(entity.entityType)).map(entity => MoveAction(entity.id))
