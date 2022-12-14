@@ -1,16 +1,17 @@
 package factory
 
-import factory.actionSourceFactory.{AsteroidSpawnActionSourceFactory, ShotSpawnActionSourceFactory}
+//import factory.actionSourceFactory.{AsteroidSpawnActionSourceFactory, ShotSpawnActionSourceFactory}
 import gameFlow.GameFlow
 
 case class RegularGameFlowFactory():
-  val asteroidSpawnActionSourceFactory: AsteroidSpawnActionSourceFactory = AsteroidSpawnActionSourceFactory()
-  val shotSpawnActionSourceFactory: ShotSpawnActionSourceFactory = ShotSpawnActionSourceFactory()
+//  val asteroidSpawnActionSourceFactory: AsteroidSpawnActionSourceFactory = AsteroidSpawnActionSourceFactory()
+//  val shotSpawnActionSourceFactory: ShotSpawnActionSourceFactory = ShotSpawnActionSourceFactory()
 //  val movementActionSourceFactory: MovementActionSourceFactory = MovementActionSourceFactory()
 //  val collisionActionSourceFactory: CollisionActionSourceFactory = CollisionActionSourceFactory()
   def create(): GameFlow =
-    GameFlow(List(asteroidSpawnActionSourceFactory.create()
-      , shotSpawnActionSourceFactory.create()
+    GameFlow(List(
+//      asteroidSpawnActionSourceFactory.create()
+//      , shotSpawnActionSourceFactory.create()
 //      , movementActionSourceFactory.create()
 //      , collisionActionSourceFactory.create()
       ))

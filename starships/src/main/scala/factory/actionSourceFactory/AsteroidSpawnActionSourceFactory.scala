@@ -1,7 +1,8 @@
 package factory.actionSourceFactory
 
 import action.spawn.*
-import actionSource.{ActionSource, TimedSpawnActionSource}
+import actionSource.ActionSource
+import actionSource.spawn.TimedSpawnActionSource
 import entity.value.motion.{Coordinate, Motion}
 case class AsteroidSpawnActionSourceFactory() extends ActionSourceFactory:
   def create(): ActionSource =
