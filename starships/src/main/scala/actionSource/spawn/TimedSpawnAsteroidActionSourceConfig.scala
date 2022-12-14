@@ -4,7 +4,7 @@ import action.spawn.{SpawnAction, SpawnAsteroidAction}
 import actionSource.ActionSourceConfig
 import entity.value.motion.{Coordinate, Motion, Rotation, Speed}
 
-case class AsteroidTimedSpawnActionSourceConfig() extends TimedSpawnActionSourceConfig:
+case class TimedSpawnAsteroidActionSourceConfig() extends TimedSpawnActionSourceConfig:
   def time: Double = 10
   def spawnActions: List[SpawnAction] =
     val zeroZero = Coordinate(0,0)
