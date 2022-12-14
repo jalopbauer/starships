@@ -1,33 +1,4 @@
-package actionSource.movement//
-//  , forwardKeyPress: KeyPress
-//  , backwardsKeyPress: KeyPress
-//  , rotateLeftKeyPress: KeyPress
-//  , rotateRightKeyPress: KeyPress
-//  )
-//  EntityIdControlledMovementKeyPresses(
-//    1
-//    , KeyPress("w")
-//    , KeyPress("s")
-//    , KeyPress("a")
-//    , KeyPress("d")
-//  )
-//  ,
-//  EntityIdControlledMovementKeyPresses(
-//    2
-//    , KeyPress("j")
-//    , KeyPress("k")
-//    , KeyPress("h")
-//    , KeyPress("l")
-//  )
-//  ,
-//  EntityIdControlledMovementKeyPresses(
-//    3
-//    , KeyPress("z")
-//    , KeyPress("x")
-//    , KeyPress("c")
-//    , KeyPress("v")
-//  )
-
+package actionSource.movement
 import actionSource.ActionSourceConfig
 import entity.EntityIdControlledMovementKeyPresses
 import entity.value.{EntityType, KeyPress}
@@ -41,6 +12,14 @@ case class RegularControlledMovementActionSourceConfig() extends ControlledMovem
         , KeyPress("s")
         , KeyPress("a")
         , KeyPress("d")
+      ) ,
+      EntityIdControlledMovementKeyPresses(
+        2
+        , KeyPress("j")
+        , KeyPress("k")
+        , KeyPress("h")
+        , KeyPress("l")
       )
+
     )
 
