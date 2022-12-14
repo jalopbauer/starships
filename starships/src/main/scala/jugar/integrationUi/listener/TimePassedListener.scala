@@ -11,7 +11,7 @@ case class TimePassedListener(mutableGameState: MutableGameState
 
   def handle(event: TimePassed): Unit =
     val gameData = mutableGameState.gameData.copy(currentTime = event.getCurrentTimeInSeconds)
-    val nextFrameGameData = gameFlow.nextFrame(gameData)
+    val nextFrameGameData = gameFlow.nextFrame(gameData).copy(currentTime = event.getCurrentTimeInSeconds, secondsSinceLastTime = event.getSecondsSinceLastTime)
     mutableGameState.gameData = nextFrameGameData
 
     mutableGameState.update()
