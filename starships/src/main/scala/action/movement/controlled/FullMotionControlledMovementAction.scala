@@ -9,7 +9,9 @@ import gameState.PlayingGameState
 case class FullMotionControlledMovementAction(controlledMovementKeyPresses: EntityIdControlledMovementKeyPresses) extends MovementAction :
   def act(gameData: PlayingGameState): PlayingGameState =
     val entityId = controlledMovementKeyPresses.id
-    val forwardMovementActionGameData = ControlledBackwardMovementAction(entityId, controlledMovementKeyPresses.forwardKeyPress).act(gameData)
-    val backwardMovementActionGameData = ControlledForwardMovementAction(entityId, controlledMovementKeyPresses.backwardsKeyPress).act(forwardMovementActionGameData)
-    val rotateLeftActionGameData = ControlledRotateLeftAction(entityId, controlledMovementKeyPresses.rotateLeftKeyPress).act(backwardMovementActionGameData)
-    ControlledRotateRightAction(entityId, controlledMovementKeyPresses.rotateRightKeyPress).act(rotateLeftActionGameData)
+    List(
+      ControlledBackwardMovementAction(entityId, controlledMovementKeyPresses.forwardKeyPress)
+      , ControlledForwardMovementAction(entityId, controlledMovementKeyPresses.backwardsKeyPress)
+      , ControlledForwardMovementAction(entityId, controlledMovementKeyPresses.backwardsKeyPress)
+      , ControlledRotateRightAction(entityId, controlledMovementKeyPresses.rotateRightKeyPress)
+    ).foldLeft(gameData)((gameData, movementAction) => movementAction.act(gameData))
