@@ -41,21 +41,6 @@ case class RegularControlledMovementActionSourceConfig() extends ControlledMovem
         , KeyPress("s")
         , KeyPress("a")
         , KeyPress("d")
-      ) ,
-      EntityIdControlledMovementKeyPresses(
-        2
-        , KeyPress("j")
-        , KeyPress("k")
-        , KeyPress("h")
-        , KeyPress("l")
-      ) ,
-      EntityIdControlledMovementKeyPresses(
-        3
-        , KeyPress("z")
-        , KeyPress("x")
-        , KeyPress("c")
-        , KeyPress("v")
       )
-      
     )
 
