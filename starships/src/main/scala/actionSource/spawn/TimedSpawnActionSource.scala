@@ -7,7 +7,7 @@ import actionSource.ActionSource
 import gameState.PlayingGameState
 
 
-case class TimedSpawnActionSource(time: Double, spawnActions: List[SpawnAction]) extends ActionSource:
+case class TimedSpawnActionSource(timedSpawnActionSourceConfig: TimedSpawnActionSourceConfig) extends ActionSource:
   def createActions(gameData: PlayingGameState): List[Action] =
-    if (gameData.currentTime - gameData.previousSpawnTime >= time) UpdateSpawnTime() :: spawnActions
+    if (gameData.currentTime - gameData.previousSpawnTime >= timedSpawnActionSourceConfig.time) UpdateSpawnTime() :: timedSpawnActionSourceConfig.spawnActions
     else List()
