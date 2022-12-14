@@ -32,15 +32,3 @@
 //      KeyPress("s")
 //      , shipBreakSlowDownMovementAction
 //    )
-//    MovementActionSource(
-//      Map(
-//        EntityType.ASTEROID -> constantMovementActionBuilder
-//        , EntityType.SHOT -> constantMovementActionBuilder
-//        , EntityType.SHIP -> constantMovementActionBuilder
-//      ) ,
-//      List(
-//        (1, shipForwardMovementActionBuilder)
-//        , (1, shipBreakMovementAction)
-//      )
-//    )
-//
