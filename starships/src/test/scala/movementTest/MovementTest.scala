@@ -4,7 +4,7 @@ import org.scalatest._
 import funsuite._
 
 import gameFlow.GameFlow
-import actionSource.movement.{ForwardMovementActionSource, RegularForwardMovementActionSourceConfig}
+import actionSource.movement.{MoveActionSource, RegularMoveActionSourceConfig}
 import entity.Entity
 import entity.value.motion.{Coordinate, Motion, Rotation, Speed}
 import entity.value.EntityType
@@ -19,7 +19,7 @@ class MovementTest extends AnyFunSuite {
   val speedOneOne: Speed = Speed(Coordinate(1, 1), 0, 0)
   val asteroid: Entity = Entity(1, EntityType.ASTEROID, Motion(zeroZero, noRotation, speedOneOne), 1, 5)
   val gameData: PlayingGameState = PlayingGameState(Map(1 -> asteroid), seed, booleanSeed, secondsSinceLastTime = 1)
-  val gameFlow: GameFlow = GameFlow(List(ForwardMovementActionSource(RegularForwardMovementActionSourceConfig())))
+  val gameFlow: GameFlow = GameFlow(List(MoveActionSource(RegularMoveActionSourceConfig())))
 
   test ("An empty Set should have size 0") {
     val playingGameState = gameFlow.nextFrame(gameData)

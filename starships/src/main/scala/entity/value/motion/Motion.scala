@@ -11,5 +11,9 @@ case class Motion(position: Coordinate, rotation: Rotation, speed: Speed):
   def rotateLeft: Motion =
     this.copy(rotation = rotation.rotateLeft)
 
+  def move(): Motion =
+    val newPosition = position + speed.speed
+    this.copy(position = newPosition)
+
   def rotateRight: Motion =
     this.copy(rotation = rotation.rotateRight)

@@ -4,5 +4,5 @@ import actionSource.ActionSourceConfig
 import entity.value.EntityType
 
 
-trait ForwardMovementActionSourceConfig extends ActionSourceConfig[ForwardMovementActionSource] :
+trait MoveActionSourceConfig extends ActionSourceConfig[MoveActionSource] :
   def entityTypes: Seq[EntityType]
