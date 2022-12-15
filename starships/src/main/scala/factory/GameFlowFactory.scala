@@ -17,15 +17,12 @@ case class GameFlowFactory():
   val shotSpawnActionSourceFactory: ShotSpawnActionSourceFactory = ShotSpawnActionSourceFactory()
   def create(idListSeed: IdListSeed): GameFlow = {
     val timedSpawnActionSourceFactory = TimedSpawnActionSourceFactory()
-    GameFlow(
-      List(
-        collisionActionSourceFactory.create
-        , controlledMovementActionSourceFactory.create(idListSeed)
-        , moveActionSourceFactory.create
-        , shotSpawnActionSourceFactory.create(idListSeed)
-        , timedSpawnActionSourceFactory.create
-        , InsideBorderActionSourceSetEntity(InsideBorderShipActionSourceConfig())
-        , InsideBorderActionSourceRemoveEntity(InsideBorderAsteroidActionSourceConfig())
-        , InsideBorderActionSourceRemoveEntity(InsideBorderShotActionSourceConfig())
-      ))
+    val insideBorderSourceFactory = InsideBorderSourceFactory()
+    val actionSources = List(
+      collisionActionSourceFactory.create
+      , controlledMovementActionSourceFactory.create(idListSeed)
+      , moveActionSourceFactory.create
+      , shotSpawnActionSourceFactory.create(idListSeed)
+      , timedSpawnActionSourceFactory.create).appendedAll(insideBorderSourceFactory.create())
+    GameFlow(actionSources)
   }
