@@ -12,8 +12,9 @@ import seed.IntSeed
 case class RegularGameFactory() extends GameFactory:
   val idListSeedFactory: IdListSeedFactory = IdListSeedFactory()
   val playingGameStateFactory: PlayingGameStateFactory = PlayingGameStateFactory()
+  val gameFlowFactory: GameFlowFactory = GameFlowFactory()
   def create: Game =
     val idListSeed = idListSeedFactory.create
     val gameState = playingGameStateFactory.create(idListSeed)
-
-    Game(gameState, null)
+    val gameFlow = gameFlowFactory.create(idListSeed)
+    Game(gameState, gameFlow)
