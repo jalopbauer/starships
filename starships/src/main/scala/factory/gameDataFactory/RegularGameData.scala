@@ -10,7 +10,7 @@ case class RegularGameData() extends GameDataFactory:
   def create(): PlayingGameState =
     val seed = CrescendoIntSeed(3)
     val booleanSeed = PatternBooleanSeed(List(true, true, false, true, false))
-    val motion = Motion(Coordinate(300,200), Rotation(0 , 10), Speed(Coordinate(0,0), 20, 20))
+    val motion = Motion(Coordinate(300,200), Rotation(0 , 10), Speed(Coordinate(0,0), 20, 20, 20))
     val entitiesMap: Map[Int, Entity] = Map(
         1 -> Entity(1, EntityType.SHIP, motion, 10, 5)
       , 2 -> Entity(2, EntityType.SHIP, motion, 10, 5)

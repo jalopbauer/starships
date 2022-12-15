@@ -12,9 +12,9 @@ case class TimedSpawnAsteroidActionSourceConfig() extends TimedSpawnActionSource
     val zeroEightHundred = Coordinate(0,800)
     val eightHundredEightHundred = Coordinate(800,800)
     val noRotation = Rotation(0, 0)
-    val speedOneOne = Speed(Coordinate(1, 1).normalize, 0, 0)
-    val speedThreeOne = Speed(Coordinate(3, 1).normalize, 0, 0)
-    val speedOneThree = Speed(Coordinate(1, 3).normalize, 0, 0)
+    val speedOneOne = Speed(Coordinate(1, 1).normalize, 0, 0, 20)
+    val speedThreeOne = Speed(Coordinate(3, 1).normalize, 0, 0, 20)
+    val speedOneThree = Speed(Coordinate(1, 3).normalize, 0, 0, 20)
 
     List(
       SpawnAsteroidAction(Motion(zeroZero, noRotation, speedOneOne), 1, 5)
