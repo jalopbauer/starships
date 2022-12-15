@@ -27,8 +27,11 @@ class MutableGameState(var gameData: PlayingGameState, var elements: ObservableM
     gameData = gameData.flush()
 
   def removeDeadEntities(): Unit =
-    gameData.deadEntitiesSet.map(_ => elements.remove(idAdapter.meThem(_)))
-    gameData.removeDeadEntities
+    gameData.deadEntitiesSet.foreach(id => {
+      val adaptedId = idAdapter.meThem(id)
+      val model = elements.remove(adaptedId, elements.get(adaptedId))
+    })
+    gameData = gameData.removeDeadEntities
   def update(): Unit =
     gameData.modifiedEntitiesSet.foreach(entityId => {
     val optionalEntity = gameData.entitiesMap.get(entityId)
