@@ -8,7 +8,7 @@ import seed.*
 case object ConfigFile:
 
   val border: Int = 800
-  val seed: IntSeed = CrescendoIntSeed()
+  val idSeed: IntSeed = CrescendoIntSeed()
   val booleanSeed: BooleanSeed = PatternBooleanSeed(List(true, true, false, true, false))
 
   val amountOfPlayers: Int = 2
