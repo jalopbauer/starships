@@ -26,12 +26,16 @@ class CollisionTest extends AnyFunSuite {
     testMethod(asteroid, shot, 2, 0)
   }
 
-  test("Collision between shot and asteroid, testing for inverse is accurate") {
-    testMethod(shot, asteroid, 0,2)
-  }
-
   test("Collision between shot and ship") {
     testMethod(shot, ship, 0, 4)
+  }
+
+  test("Collision between asteroid and ship") {
+    testMethod(asteroid, ship, 2, 4)
+  }
+
+  test("Collision between shot and asteroid, testing for inverse is accurate") {
+    testMethod(shot, asteroid, 0,2)
   }
 
   def testMethod( leftEntity: Entity, rightEntity: Entity, leftEntityExpectedHealth: Int, rightEntityExpectedHealth: Int): Assertion =
