@@ -20,10 +20,11 @@ case class GameFlowFactory():
         collisionActionSourceFactory.create
         , controlledMovementActionSourceFactory.create(idListSeed)
         , moveActionSourceFactory.create
+              , SpawnActionSource(SpawnActionShotSourceConfig())
+
       ))
   }
 
-//      , SpawnActionSource(SpawnActionShotSourceConfig())
 //      , TimedSpawnActionSource(TimedSpawnAsteroidActionSourceConfig())
 //      , InsideBorderActionSourceSetEntity(InsideBorderShipActionSourceConfig())
 //      , InsideBorderActionSourceRemoveEntity(InsideBorderAsteroidActionSourceConfig())
