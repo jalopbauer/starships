@@ -10,7 +10,7 @@ import gameFlow.GameFlow
 import seed.IntSeed
 
 case class GameFlowFactory():
-  def create(idListSeed: (List[Int], IntSeed)): GameFlow =
+  def create(idListSeed: IdListSeed): GameFlow =
     GameFlow(List(
         CollisionActionSource(RegularCollisionActionSourceConfig())
       , ControlledMovementActionSource(RegularControlledMovementActionSourceConfig())

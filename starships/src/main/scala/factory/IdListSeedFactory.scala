@@ -4,13 +4,12 @@ import config.ConfigFile
 import seed.IntSeed
 
 case class IdListSeedFactory():
-  type IdListSeed = (List[Int], IntSeed)
-  
-  def create: (List[Int], IntSeed) =
+
+  def create: IdListSeed =
     val amountOfEntities = 1 to ConfigFile.amountOfPlayers
-    amountOfEntities.foldLeft((List(), ConfigFile.idSeed): IdListSeed)((acc, _) =>
-      val ids = acc._1
-      val seed = acc._2
+    amountOfEntities.foldLeft(IdListSeed(ConfigFile.idSeed))((acc, _) =>
+      val ids = acc.ids
+      val seed = acc.seed
       val next = seed.next
-      (ids.appended(next._1), next._2)
+      IdListSeed(next._2, ids.appended(next._1))
     )

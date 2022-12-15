@@ -6,9 +6,9 @@ import gameState.PlayingGameState
 import seed.IntSeed
 
 case class PlayingGameStateFactory():
-  def create(idListSeed: (List[Int], IntSeed)): PlayingGameState =
-    val idList = idListSeed._1
-    val idSeed = idListSeed._2
+  def create(idListSeed: IdListSeed): PlayingGameState =
+    val idList = idListSeed.ids
+    val idSeed = idListSeed.seed
     val shipValues = idList zip ConfigFile.playerShipsMotions zip ConfigFile.playerShipsDamage zip ConfigFile.playerShipsHealth
     val entitiesMap = shipValues.map(values => {
       val id = values._1._1._1
