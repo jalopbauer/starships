@@ -7,16 +7,17 @@ import actionSource.insideBorder.setEntity.InsideBorderActionSourceSetEntity
 import actionSource.movement.{ControlledMovementActionSource, InputControlledMovementActionSourceConfig, MoveActionSource, RegularMoveActionSourceConfig}
 import actionSource.spawn.{SpawnActionShotSourceConfig, SpawnActionSource, TimedSpawnActionSource, TimedSpawnAsteroidActionSourceConfig}
 import factory.actionSourceConfigFactory.ControlledMovementActionSourceConfigFactory
-import factory.actionsource.ControlledMovementActionSourceFactory
+import factory.actionsource.{CollisionActionSourceFactory, ControlledMovementActionSourceFactory}
 import gameFlow.GameFlow
 import seed.IntSeed
 
 case class GameFlowFactory():
   val controlledMovementActionSourceFactory: ControlledMovementActionSourceFactory = ControlledMovementActionSourceFactory()
+  val collisionActionSourceFactory: CollisionActionSourceFactory = CollisionActionSourceFactory()
   def create(idListSeed: IdListSeed): GameFlow = {
     GameFlow(
       List(
-        CollisionActionSource(RegularCollisionActionSourceConfig())
+        collisionActionSourceFactory.create
         , controlledMovementActionSourceFactory.create(idListSeed)
       ))
   }
