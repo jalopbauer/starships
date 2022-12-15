@@ -1,7 +1,7 @@
 package factory
 
-import actionSource.{PositionSource, PositionSourceConfig}
 import actionSource.collision.{CollisionActionSource, RegularCollisionActionSourceConfig}
+import actionSource.insideBorder.{PositionSource, ShipPositionSourceConfig}
 import actionSource.movement.{ControlledMovementActionSource, MoveActionSource, RegularControlledMovementActionSourceConfig, RegularMoveActionSourceConfig}
 import actionSource.spawn.{SpawnActionShotSourceConfig, SpawnActionSource, TimedSpawnActionSource, TimedSpawnAsteroidActionSourceConfig}
 import gameFlow.GameFlow
@@ -14,5 +14,5 @@ case class RegularGameFlowFactory():
       , MoveActionSource(RegularMoveActionSourceConfig())
       , SpawnActionSource(SpawnActionShotSourceConfig())
       , TimedSpawnActionSource(TimedSpawnAsteroidActionSourceConfig())
-      , PositionSource(PositionSourceConfig())
+      , PositionSource(ShipPositionSourceConfig())
       ))
