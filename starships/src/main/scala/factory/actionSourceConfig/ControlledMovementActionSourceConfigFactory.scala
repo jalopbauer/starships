@@ -1,4 +1,4 @@
-package factory.actionSourceConfigFactory
+package factory.actionSourceConfig
 
 import actionSource.movement.{ControlledMovementActionSourceConfig, InputControlledMovementActionSourceConfig}
 import config.ConfigFile
