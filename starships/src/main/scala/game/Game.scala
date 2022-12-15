@@ -1,6 +1,6 @@
 package game
 
 import gameFlow.GameFlow
-import gameState.GameState
+import gameState.PlayingGameState
 
-case class Game(gameState: GameState, gameFlow: GameFlow)
+case class Game(gameState: PlayingGameState, gameFlow: GameFlow)
