@@ -7,13 +7,12 @@ case class EntityAdapter():
   val entityTypeAdapter: EntityTypeAdapter = EntityTypeAdapter()
   val idAdapter: IdAdapter = IdAdapter()
   def meThem(entity: Entity): ElementModel =
-//    ElementModel("asteroid-1", 0.0, 0.0, 30.0, 40.0, 0.0, Elliptical, null)
     ElementModel(
       idAdapter.meThem(entity.id)
       , entity.motion.position.x
       , entity.motion.position.y
-      , 30.0
-      , 30.0
+      , entity.shape.height
+      , entity.shape.height
       , entity.motion.rotation.angleInDegrees
       , entityTypeAdapter.meThem(entity.entityType)
       , null
