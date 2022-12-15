@@ -16,6 +16,6 @@ case class PlayingGameStateFactory():
       val motion = values._1._1._2
       val damage = values._1._2
       val health = values._2
-      id -> Entity(id, entityType, motion, damage, health)
+      id -> Entity(id, entityType, motion, damage, health, ConfigFile.shipShape)
     }).toMap
     PlayingGameState(entitiesMap, idSeed, ConfigFile.booleanSeed)

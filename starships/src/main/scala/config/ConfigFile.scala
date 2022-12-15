@@ -10,7 +10,7 @@ case object ConfigFile:
   val border: Int = 800
   val idSeed: IntSeed = CrescendoIntSeed()
   val booleanSeed: BooleanSeed = PatternBooleanSeed(List(true, true, false, true, false))
-
+  val shipShape: Shape = Shape(15, 10)
   val amountOfPlayers: Int = 2
   val playerShipsMotions: List[Motion] = List(
       Motion(Coordinate(300,200), Rotation(0 , 10), Speed(Coordinate(0,0), 20, 20, 20))

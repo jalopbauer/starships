@@ -20,24 +20,24 @@ case class TimedSpawnActionSourceFactory():
     val zeroEightHundred = Coordinate(0, 800)
     val eightHundredEightHundred = Coordinate(800, 800)
     val noRotation = Rotation(0, 0)
-    val zeroZeroSpawnAsteroidActionList = newValue.map(value => SpawnAsteroidAction(Motion(zeroZero, noRotation, value._1), value._3, value._2))
+    val zeroZeroSpawnAsteroidActionList = newValue.map(value => SpawnAsteroidAction(Motion(zeroZero, noRotation, value._1), value._3, value._2, ConfigFile.shipShape))
     val eightHundredZeroSpawnAsteroidActionList = newValue.map(value =>
         val speed = value._1
         val speedCoord = speed.speed
         val newSpeed = speed.copy(speed = speedCoord.copy(-speedCoord.x))
-        SpawnAsteroidAction(Motion(eightHundredZero, noRotation, newSpeed), value._3, value._2)
+        SpawnAsteroidAction(Motion(eightHundredZero, noRotation, newSpeed), value._3, value._2, ConfigFile.shipShape)
       )
     val zeroEightHundredSpawnAsteroidActionList = newValue.map(value =>
         val speed = value._1
         val speedCoord = speed.speed
         val newSpeed = speed.copy(speed = speedCoord.copy(y = -speedCoord.y))
-        SpawnAsteroidAction(Motion(zeroEightHundred, noRotation, newSpeed), value._3, value._2)
+        SpawnAsteroidAction(Motion(zeroEightHundred, noRotation, newSpeed), value._3, value._2, ConfigFile.shipShape)
       )
     val eightHundredEightHundredSpawnAsteroidActionList = newValue.map(value =>
         val speed = value._1
         val speedCoord = speed.speed
         val newSpeed = speed.copy(speed = speedCoord.copy(-speedCoord.x, -speedCoord.y))
-        SpawnAsteroidAction(Motion(eightHundredEightHundred, noRotation, newSpeed), value._3, value._2)
+        SpawnAsteroidAction(Motion(eightHundredEightHundred, noRotation, newSpeed), value._3, value._2, ConfigFile.shipShape)
       )
     val spawnAsteroidActionList = zeroZeroSpawnAsteroidActionList
       .appendedAll(eightHundredZeroSpawnAsteroidActionList)
