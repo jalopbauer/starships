@@ -8,6 +8,5 @@ case class RegularCollisionActionSourceConfig() extends CollisionActionSourceCon
   def collisionToMaybeCollisionAction(collision: Collision): Option[CollisionAction] =
     if (List(EntityTypeCollision(EntityType.SHIP, EntityType.ASTEROID)
       , EntityTypeCollision(EntityType.ASTEROID, EntityType.SHOT)
-      , EntityTypeCollision(EntityType.SHIP, EntityType.SHOT)
     ).exists(EntityTypeCollision.compare(_, collision.entityTypeCollision))) Some(CollisionDamageAction(collision))
     else None
