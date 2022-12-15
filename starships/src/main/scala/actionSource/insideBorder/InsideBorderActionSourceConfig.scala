@@ -3,9 +3,6 @@ package actionSource.insideBorder
 import actionSource.ActionSourceConfig
 import entity.value.EntityType
 
-trait PositionDependantActionSourceConfig() extends ActionSourceConfig[PositionSource] :
-  def ids: List[Int]
-
-  def border: Int
-
+trait InsideBorderActionSourceConfig() extends ActionSourceConfig[InsideBorderActionSource] :
+  def border: Int = 800
   def entityType: EntityType

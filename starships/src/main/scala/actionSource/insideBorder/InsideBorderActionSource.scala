@@ -1,0 +1,7 @@
+package actionSource.insideBorder
+
+import action.{Action, SetEntityInsideBorderAction}
+import actionSource.ActionSource
+import gameState.PlayingGameState
+
+trait InsideBorderActionSource(positionSourceConfig: InsideBorderActionSourceConfig) extends ActionSource

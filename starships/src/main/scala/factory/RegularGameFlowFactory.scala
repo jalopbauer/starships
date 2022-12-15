@@ -1,7 +1,9 @@
 package factory
 
 import actionSource.collision.{CollisionActionSource, RegularCollisionActionSourceConfig}
-import actionSource.insideBorder.{PositionSource, ShipPositionSourceConfig}
+import actionSource.insideBorder.removeEntity.InsideBorderActionSourceRemoveEntity
+import actionSource.insideBorder.{InsideBorderAsteroidActionSourceConfig, InsideBorderShipActionSourceConfig, InsideBorderShotActionSourceConfig, setEntity}
+import actionSource.insideBorder.setEntity.InsideBorderActionSourceSetEntity
 import actionSource.movement.{ControlledMovementActionSource, MoveActionSource, RegularControlledMovementActionSourceConfig, RegularMoveActionSourceConfig}
 import actionSource.spawn.{SpawnActionShotSourceConfig, SpawnActionSource, TimedSpawnActionSource, TimedSpawnAsteroidActionSourceConfig}
 import gameFlow.GameFlow
@@ -14,5 +16,7 @@ case class RegularGameFlowFactory():
       , MoveActionSource(RegularMoveActionSourceConfig())
       , SpawnActionSource(SpawnActionShotSourceConfig())
       , TimedSpawnActionSource(TimedSpawnAsteroidActionSourceConfig())
-      , PositionSource(ShipPositionSourceConfig())
+      , InsideBorderActionSourceSetEntity(InsideBorderShipActionSourceConfig())
+      , InsideBorderActionSourceRemoveEntity(InsideBorderAsteroidActionSourceConfig())
+      , InsideBorderActionSourceRemoveEntity(InsideBorderShotActionSourceConfig())
       ))
