@@ -6,6 +6,7 @@ import entity.Entity
 case class EntityAdapter():
   val entityTypeAdapter: EntityTypeAdapter = EntityTypeAdapter()
   val idAdapter: IdAdapter = IdAdapter()
+  val entityImgAdapter: EntityImgAdapter = EntityImgAdapter()
   def meThem(entity: Entity): ElementModel =
     ElementModel(
       idAdapter.meThem(entity.id)
@@ -15,5 +16,5 @@ case class EntityAdapter():
       , entity.shape.height
       , entity.motion.rotation.angleInDegrees
       , entityTypeAdapter.meThem(entity.entityType)
-      , null
+      , entityImgAdapter.meThem(entity.entityType, entity.shape)
     )
