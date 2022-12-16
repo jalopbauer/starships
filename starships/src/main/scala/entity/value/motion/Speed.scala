@@ -12,3 +12,6 @@ case class Speed(speed: Coordinate, acceleration: Double, deacceleration: Double
     if (isHigherThanMaxSpeed(newSpeedAxisX, newSpeedAxisY)) this
     else this.copy(speed = speed.copy(newSpeedAxisX, newSpeedAxisY))
   private def isHigherThanMaxSpeed(newSpeedAxisX: Double, newSpeedAxisY: Double): Boolean = maxSpeed < (newSpeedAxisX.abs + newSpeedAxisY.abs)
+
+  def saveString: String =
+    s"${speed.saveString}%$acceleration%$deacceleration%$maxSpeed"

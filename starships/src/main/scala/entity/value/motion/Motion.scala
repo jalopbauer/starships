@@ -15,3 +15,6 @@ case class Motion(position: Coordinate, rotation: Rotation, speed: Speed):
 
   def rotateRight: Motion =
     this.copy(rotation = rotation.rotateRight)
+
+  def saveString: String =
+    s"${position.saveString}/${rotation.saveString}/${speed.saveString}"

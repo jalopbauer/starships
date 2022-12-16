@@ -19,3 +19,6 @@ case class Coordinate(x: Double, y: Double):
   def normalize: Coordinate =
     val length = this.length
     Coordinate(x/length, y/length)
+
+  def saveString: String =
+    s"$x, $y"

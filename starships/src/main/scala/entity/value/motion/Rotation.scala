@@ -6,3 +6,6 @@ case class Rotation(angleInDegrees: Double, rotationAngleInDegrees: Double):
 
   def rotateRight: Rotation =
     this.copy(angleInDegrees + rotationAngleInDegrees)
+
+  def saveString: String =
+    s"$angleInDegrees, $rotationAngleInDegrees"
