@@ -8,7 +8,6 @@ case class EntityAdapter():
   val idAdapter: IdAdapter = IdAdapter()
   val entityImgAdapter: EntityImgAdapter = EntityImgAdapter()
   def meThem(entity: Entity): ElementModel =
-    println(entity.shape)
     ElementModel(
       idAdapter.meThem(entity.id)
       , entity.motion.position.x
