@@ -15,7 +15,7 @@ case class PlayingGameState(  entitiesMap: Map[Int, Entity]
                             , previousSpawnTime: Double = 0
                             , currentTime: Double = 0
                             , secondsSinceLastTime: Double = 0
-                            , deadEntitiesSet: Set[Int] = Set()) extends GameState:
+                            , deadEntitiesSet: Set[Int] = Set()):
 
   def entities: List[Entity] = entitiesMap.values.toList
 
