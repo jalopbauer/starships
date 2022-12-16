@@ -7,7 +7,7 @@ import factory.IdListSeed
 
 case class ShotSpawnActionSourceFactory():
   def create(idListSeed: IdListSeed): SpawnActionSource =
-    val value = idListSeed.ids zip ConfigFile.shipsShootKey 
+    val value = idListSeed.ids zip ConfigFile.shipsShootKey
     SpawnActionSource(SpawnActionShotSourceConfig(value))
 
 
