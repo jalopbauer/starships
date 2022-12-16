@@ -5,8 +5,8 @@ import seed.IntSeed
 
 case class IdListSeedFactory():
 
-  def create: IdListSeed =
-    val amountOfEntities = 1 to ConfigFile.amountOfPlayers
+  def create(numbers:Int): IdListSeed =
+    val amountOfEntities = 1 to numbers
     amountOfEntities.foldLeft(IdListSeed(ConfigFile.idSeed))((acc, _) =>
       val ids = acc.ids
       val seed = acc.seed

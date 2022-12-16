@@ -14,7 +14,7 @@ case class RegularGameFactory() extends GameFactory:
   val playingGameStateFactory: PlayingGameStateFactory = PlayingGameStateFactory()
   val gameFlowFactory: GameFlowFactory = GameFlowFactory()
   def create: Game =
-    val idListSeed = idListSeedFactory.create
+    val idListSeed = idListSeedFactory.create(ConfigFile.amountOfPlayers)
     val gameState = playingGameStateFactory.create(idListSeed)
     val gameFlow = gameFlowFactory.create(idListSeed)
     Game(gameState, gameFlow)
