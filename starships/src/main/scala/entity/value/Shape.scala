@@ -1,5 +1,7 @@
 package entity.value
 
+import entity.value.motion.Coordinate
+
 case class Shape(width: Double, height:Double):
 
   def saveString: String =
@@ -7,4 +9,5 @@ case class Shape(width: Double, height:Double):
 
 case object Shape:
   def stringToShape(string: String): Shape =
-    null
+    val array = string.split(",")
+    Shape(array(0).toDouble, array(1).toDouble)

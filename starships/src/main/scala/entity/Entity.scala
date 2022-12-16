@@ -6,11 +6,11 @@ import entity.value.motion.Motion
 case class Entity(id: Int, entityType: EntityType, motion: Motion, damage: Int, health: Int, shape: Shape):
 
   def saveString: String =
-    s"$id^${entityType.toString}^${motion.saveString}^$damage^$health^${shape.saveString}"
+    s"$id&${entityType.toString}&${motion.saveString}&$damage&$health&${shape.saveString}"
 
 case object Entity:
   def stringToEntity(string: String): Entity =
-    val array = string.split("^")
+    val array = string.split('&')
     val entityType = array(1) match
       case "ASTEROID" => EntityType.ASTEROID
       case "SHIP" => EntityType.SHIP

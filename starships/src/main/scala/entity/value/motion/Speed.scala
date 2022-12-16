@@ -19,4 +19,4 @@ case class Speed(speed: Coordinate, acceleration: Double, deacceleration: Double
 case object Speed:
   def stringToSpeed(string: String): Speed =
     val array = string.split("%")
-    Speed(Coordinate.stringToCoordinate(array(0)), array(1).toDouble, array(3).toDouble, array(4).toDouble)
+    Speed(Coordinate.stringToCoordinate(array(0)), array(1).toDouble, array(2).toDouble, array(3).toDouble)

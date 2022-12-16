@@ -2,7 +2,7 @@ package jugar.integrationUi
 
 import edu.austral.ingsis.starships.ui.*
 import edu.austral.ingsis.starships.ui.ElementColliderType.*
-import factory.{GameFactory, RegularGameFactory}
+import factory.{GameFactory, PreexistiingGameFactory, RegularGameFactory}
 import javafx.application.Application
 import javafx.application.Application.launch
 import javafx.scene.Scene
@@ -16,7 +16,7 @@ class Starships() extends Application():
   private val imageResolver = CachedImageResolver(DefaultImageResolver())
   private val facade = ElementsViewFacade(imageResolver)
   private val keyTracker = KeyTracker()
-  private val game = RegularGameFactory().create
+  private val game = PreexistiingGameFactory().create
   private val mutableGameData = MutableGameState(game.gameState, facade.getElements)
   private val gameFlow = game.gameFlow
 

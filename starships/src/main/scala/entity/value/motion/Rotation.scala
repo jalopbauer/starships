@@ -13,4 +13,4 @@ case class Rotation(angleInDegrees: Double, rotationAngleInDegrees: Double):
 case object Rotation:
   def stringToRotation(string: String): Rotation =
     val array = string.split(",")
-    Rotation(array(0).toInt, array(1).toInt)
+    Rotation(array(0).toDouble, array(1).toDouble)

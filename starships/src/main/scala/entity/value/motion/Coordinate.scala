@@ -26,4 +26,4 @@ case class Coordinate(x: Double, y: Double):
 case object Coordinate:
   def stringToCoordinate(string: String): Coordinate =
     val array = string.split(",")
-    Coordinate(array(0).toInt, array(1).toInt)
+    Coordinate(array(0).toDouble, array(1).toDouble)

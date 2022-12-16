@@ -5,6 +5,9 @@ import entity.Entity
 import entity.value.{Collision, EntityType, KeyPress}
 import seed.{BooleanSeed, IntSeed}
 
+
+import java.io.File
+import java.io.PrintWriter
 case class PlayingGameState(  entitiesMap: Map[Int, Entity]
                             , idSeed: IntSeed
                             , booleanSeed: BooleanSeed
@@ -30,6 +33,11 @@ case class PlayingGameState(  entitiesMap: Map[Int, Entity]
     this.copy(collisions = collision :: collisions)
 
   def add(keyPress: KeyPress): PlayingGameState =
+    if (keyPress.equals(KeyPress("s")))
+      val file = File("saved_file")
+      val pr = new PrintWriter(file)
+      entities.foreach(entity =>  pr.write(s"${entity.saveString}\n"))
+      pr.close()
     if (keyPress.equals(KeyPress("p"))) this.copy(isPaused = !isPaused)
     else this.copy(keyPresses = keyPress :: keyPresses)
 
