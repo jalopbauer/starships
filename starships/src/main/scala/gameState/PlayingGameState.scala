@@ -8,6 +8,7 @@ import seed.{BooleanSeed, IntSeed}
 case class PlayingGameState(  entitiesMap: Map[Int, Entity]
                             , idSeed: IntSeed
                             , booleanSeed: BooleanSeed
+                            , isPaused: Boolean = false
                             , keyPresses: List[KeyPress] = List()
                             , modifiedEntitiesSet: Set[Int] = Set()
                             , collisions: List[Collision] = List()
@@ -28,7 +29,8 @@ case class PlayingGameState(  entitiesMap: Map[Int, Entity]
     this.copy(collisions = collision :: collisions)
 
   def add(keyPress: KeyPress): PlayingGameState =
-    this.copy(keyPresses = keyPress :: keyPresses)
+    if (keyPress.equals(KeyPress("p"))) this.copy(isPaused = !isPaused)
+    else this.copy(keyPresses = keyPress :: keyPresses)
 
   def add(entity: Entity): PlayingGameState =
     this.copy(entitiesMap = entitiesMap + (entity.id -> entity), modifiedEntitiesSet = modifiedEntitiesSet + entity.id)
