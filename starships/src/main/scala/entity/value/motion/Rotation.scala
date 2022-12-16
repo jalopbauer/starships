@@ -9,3 +9,8 @@ case class Rotation(angleInDegrees: Double, rotationAngleInDegrees: Double):
 
   def saveString: String =
     s"$angleInDegrees, $rotationAngleInDegrees"
+
+case object Rotation:
+  def stringToRotation(string: String): Rotation =
+    val array = string.split(",")
+    Rotation(array(0).toInt, array(1).toInt)

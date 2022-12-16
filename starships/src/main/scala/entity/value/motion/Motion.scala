@@ -18,3 +18,8 @@ case class Motion(position: Coordinate, rotation: Rotation, speed: Speed):
 
   def saveString: String =
     s"${position.saveString}/${rotation.saveString}/${speed.saveString}"
+
+case object Motion:
+  def stringToMotion(string: String): Motion =
+    val array = string.split("/")
+    Motion(Coordinate.stringToCoordinate(array(0)), Rotation.stringToRotation(array(1)), Speed.stringToSpeed(array(2)))

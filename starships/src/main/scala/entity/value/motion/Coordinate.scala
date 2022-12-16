@@ -22,3 +22,8 @@ case class Coordinate(x: Double, y: Double):
 
   def saveString: String =
     s"$x, $y"
+
+case object Coordinate:
+  def stringToCoordinate(string: String): Coordinate =
+    val array = string.split(",")
+    Coordinate(array(0).toInt, array(1).toInt)

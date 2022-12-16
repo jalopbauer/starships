@@ -15,3 +15,8 @@ case class Speed(speed: Coordinate, acceleration: Double, deacceleration: Double
 
   def saveString: String =
     s"${speed.saveString}%$acceleration%$deacceleration%$maxSpeed"
+
+case object Speed:
+  def stringToSpeed(string: String): Speed =
+    val array = string.split("%")
+    Speed(Coordinate.stringToCoordinate(array(0)), array(1).toDouble, array(3).toDouble, array(4).toDouble)
