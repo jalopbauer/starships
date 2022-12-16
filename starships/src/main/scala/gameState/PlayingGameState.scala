@@ -9,6 +9,7 @@ case class PlayingGameState(  entitiesMap: Map[Int, Entity]
                             , idSeed: IntSeed
                             , booleanSeed: BooleanSeed
                             , isPaused: Boolean = false
+                            , points: Int = 0
                             , keyPresses: List[KeyPress] = List()
                             , modifiedEntitiesSet: Set[Int] = Set()
                             , collisions: List[Collision] = List()

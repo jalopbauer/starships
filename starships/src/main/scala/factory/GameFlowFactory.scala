@@ -13,6 +13,7 @@ import seed.IntSeed
 case class GameFlowFactory():
   val controlledMovementActionSourceFactory: ControlledMovementActionSourceFactory = ControlledMovementActionSourceFactory()
   val collisionActionSourceFactory: CollisionActionSourceFactory = CollisionActionSourceFactory()
+  val collisionPointsActionSourceFactory: CollisionPointsActionSourceFactory = CollisionPointsActionSourceFactory()
   val moveActionSourceFactory: MoveActionSourceFactory = MoveActionSourceFactory()
   val shotSpawnActionSourceFactory: ShotSpawnActionSourceFactory = ShotSpawnActionSourceFactory()
   def create(idListSeed: IdListSeed): GameFlow = {
@@ -20,6 +21,7 @@ case class GameFlowFactory():
     val insideBorderSourceFactory = InsideBorderSourceFactory()
     val actionSources = List(
       collisionActionSourceFactory.create
+      , collisionPointsActionSourceFactory.create
       , controlledMovementActionSourceFactory.create(idListSeed)
       , moveActionSourceFactory.create
       , shotSpawnActionSourceFactory.create(idListSeed)

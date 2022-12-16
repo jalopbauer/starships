@@ -19,3 +19,8 @@ case class TimePassedListener(mutableGameState: MutableGameState
     mutableGameState.flush()
     
     mutableGameState.removeDeadEntities()
+
+    val points = gameData.points
+    if (points != mutableGameState.previousGamePoints)
+      mutableGameState.previousGamePoints = points
+      println(points)

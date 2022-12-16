@@ -12,7 +12,7 @@ import javafx.collections.ObservableMap
 import jugar.integrationUi.adapter.{EntityAdapter, IdAdapter}
 
 
-class MutableGameState(var gameData: PlayingGameState, var elements: ObservableMap[String, ElementModel]):
+class MutableGameState(var gameData: PlayingGameState, var elements: ObservableMap[String, ElementModel], var previousGamePoints: Int = 0):
   val entityAdapter: EntityAdapter = EntityAdapter()
   val idAdapter: IdAdapter = IdAdapter()
 
