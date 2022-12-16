@@ -16,7 +16,8 @@ class Starships() extends Application():
   private val imageResolver = CachedImageResolver(DefaultImageResolver())
   private val facade = ElementsViewFacade(imageResolver)
   private val keyTracker = KeyTracker()
-  private val game = PreexistiingGameFactory().create
+//  private val game = PreexistiingGameFactory().create
+  private val game = RegularGameFactory().create
   private val mutableGameData = MutableGameState(game.gameState, facade.getElements)
   private val gameFlow = game.gameFlow
 
@@ -25,6 +26,8 @@ class Starships() extends Application():
     keyTracker.stop()
 
   def start(primaryStage: Stage): Unit =
+    facade.getShowCollider.setValue(false)
+    facade.getShowGrid.set(false)
     val initialEntities = mutableGameData.gameData.entities.map(EntityAdapter().meThem(_))
     initialEntities.foreach(entityModel =>
       mutableGameData.elements.put(entityModel.getId, entityModel)
